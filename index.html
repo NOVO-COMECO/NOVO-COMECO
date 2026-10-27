@@ -4,8 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#174d35">
-  <title>Novo Começo | Cadastro</title>
+  <title>NOVO COMEÇO | Cadastro</title>
 
   <style>
     * {
@@ -14,312 +13,289 @@
 
     body {
       margin: 0;
+      padding: 20px;
       font-family: Arial, sans-serif;
-      background: #f4f7f4;
-      color: #26352c;
+      background: #f1f5f9;
+      color: #1e293b;
+    }
+
+    .container {
+      max-width: 520px;
+      margin: 25px auto;
+      padding: 25px;
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
     }
 
     header {
-      background: #174d35;
-      color: white;
       text-align: center;
-      padding: 25px 15px;
+      margin-bottom: 25px;
     }
 
-    .logo {
-      font-size: 27px;
-      font-weight: bold;
+    header h1 {
       margin-bottom: 8px;
+      color: #166534;
     }
 
     header p {
-      margin: 0;
-      color: #e6d39a;
-      font-size: 14px;
-    }
-
-    main {
-      max-width: 480px;
-      margin: 30px auto;
-      padding: 0 16px;
-    }
-
-    .card {
-      background: white;
-      padding: 25px 20px;
-      border-radius: 14px;
-      box-shadow: 0 4px 18px #0000000c;
-    }
-
-    h1 {
-      font-size: 24px;
-      color: #174d35;
-      margin-top: 0;
-    }
-
-    .intro {
-      text-align: center;
-      padding: 35px 20px;
-    }
-
-    .symbol {
-      font-size: 48px;
-      margin-bottom: 15px;
-    }
-
-    .intro p {
-      line-height: 1.6;
-      color: #59665d;
-    }
-
-    button {
-      width: 100%;
-      border: none;
-      border-radius: 8px;
-      padding: 15px;
-      margin-top: 14px;
-      background: #174d35;
-      color: white;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #236747;
-    }
-
-    .back {
-      background: #e9efe9;
-      color: #174d35;
+      color: #64748b;
+      line-height: 1.5;
     }
 
     label {
       display: block;
       margin-top: 16px;
       margin-bottom: 7px;
-      font-size: 14px;
       font-weight: bold;
     }
 
-    input, select, textarea {
-      display: block;
+    input, textarea, select {
       width: 100%;
-      padding: 13px;
-      border: 1px solid #ccd5ce;
-      border-radius: 7px;
-      background: white;
+      padding: 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
       font-size: 16px;
+      background: white;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: 2px solid #86efac;
+      border-color: #15803d;
     }
 
     textarea {
-      min-height: 85px;
+      min-height: 100px;
       resize: vertical;
     }
 
-    .note {
-      background: #f4f0e4;
-      border-left: 4px solid #b79a4b;
-      padding: 12px;
-      font-size: 13px;
-      line-height: 1.5;
-      margin-top: 18px;
+    button {
+      width: 100%;
+      margin-top: 24px;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      background: #15803d;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
     }
 
-    .message {
+    button:disabled {
+      background: #94a3b8;
+      cursor: wait;
+    }
+
+    #mensagem {
       display: none;
       margin-top: 18px;
-      padding: 15px;
-      background: #e7f4e9;
-      color: #174d35;
+      padding: 12px;
       border-radius: 8px;
       line-height: 1.5;
+      overflow-wrap: anywhere;
     }
 
-    footer {
-      text-align: center;
-      padding: 20px 15px;
-      color: #66736a;
-      font-size: 12px;
+    #mensagem.sucesso {
+      display: block;
+      background: #dcfce7;
+      color: #166534;
     }
 
-    [hidden] {
-      display: none !important;
+    #mensagem.erro {
+      display: block;
+      background: #fee2e2;
+      color: #991b1b;
     }
 
-    @media (max-width: 400px) {
-      main {
-        margin: 18px auto;
-      }
-
-      .card {
-        padding: 22px 16px;
-      }
+    .nota {
+      margin-top: 18px;
+      font-size: 13px;
+      color: #64748b;
+      line-height: 1.5;
     }
   </style>
 </head>
 
 <body>
+  <main class="container">
+    <header>
+      <h1>NOVO COMEÇO</h1>
+      <p>Preencha os dados abaixo para realizar o seu cadastro.</p>
+    </header>
 
-  <header>
-    <div class="logo">Novo Começo</div>
-    <p>Recuperar vidas. Reconstruir futuros.</p>
-  </header>
+    <form id="formCadastro">
+      <label for="nome">Nome completo</label>
+      <input
+        type="text"
+        id="nome"
+        name="nome"
+        autocomplete="name"
+        required
+      >
 
-  <main>
-    <!-- PRIMEIRA TELA -->
-    <section id="inicio" class="card intro">
-      <div class="symbol" aria-hidden="true">🌱</div>
+      <label for="idade">Idade</label>
+      <input
+        type="number"
+        id="idade"
+        name="idade"
+        min="1"
+        max="120"
+        required
+      >
 
-      <h1>Bem-vindo ao Novo Começo</h1>
+      <label for="telefone">Número de telefone</label>
+      <input
+        type="tel"
+        id="telefone"
+        name="telefone"
+        autocomplete="tel"
+        required
+      >
 
-      <p>
-        Um espaço de educação, prevenção e orientação
-        para quem procura uma mudança positiva na vida.
-      </p>
+      <label for="residencia">Residência</label>
+      <input
+        type="text"
+        id="residencia"
+        name="residencia"
+        autocomplete="street-address"
+        required
+      >
 
-      <button type="button" onclick="abrirCadastro()">
-        Cadastrar-se
+      <label for="motivo">Motivo do cadastro</label>
+      <textarea
+        id="motivo"
+        name="motivo"
+        placeholder="Explique o motivo do seu cadastro..."
+        required
+      ></textarea>
+
+      <button type="submit" id="botaoEnviar">
+        Enviar cadastro
       </button>
-    </section>
 
-    <!-- SEGUNDA TELA -->
-    <section id="cadastro" class="card" hidden>
-      <h1>Cadastro</h1>
+      <div id="mensagem" role="status" aria-live="polite"></div>
+    </form>
 
-      <p>Preencha os seus dados para iniciar o cadastro.</p>
-
-      <form id="formCadastro">
-        <label for="nome">Nome completo *</label>
-        <input
-          id="nome"
-          name="nome"
-          type="text"
-          autocomplete="name"
-          maxlength="100"
-          required
-        >
-
-        <label for="idade">Idade *</label>
-        <input
-          id="idade"
-          name="idade"
-          type="number"
-          min="18"
-          max="120"
-          required
-        >
-
-        <label for="telefone">Número de telefone *</label>
-        <input
-          id="telefone"
-          name="telefone"
-          type="tel"
-          autocomplete="tel"
-          maxlength="25"
-          placeholder="Ex.: 84 123 4567"
-          required
-        >
-
-        <label for="residencia">Local de residência *</label>
-        <input
-          id="residencia"
-          name="residencia"
-          type="text"
-          autocomplete="address-level2"
-          maxlength="100"
-          placeholder="Ex.: Nampula"
-          required
-        >
-
-        <label for="motivo">Motivo do cadastro (opcional)</label>
-        <select id="motivo" name="motivo">
-          <option value="">Selecione uma opção</option>
-          <option value="Informação e prevenção">
-            Informação e prevenção
-          </option>
-          <option value="Orientação financeira">
-            Orientação financeira
-          </option>
-          <option value="Apoio pessoal ou familiar">
-            Apoio pessoal ou familiar
-          </option>
-          <option value="Participação em palestras">
-            Participação em palestras
-          </option>
-          <option value="Outro">Outro motivo</option>
-        </select>
-
-        <div class="note">
-          Os teus dados pessoais devem ser tratados com
-          privacidade. Nesta versão de demonstração, os dados
-          não são enviados nem guardados num servidor.
-        </div>
-
-        <button type="submit">Concluir cadastro</button>
-
-        <button
-          type="button"
-          class="back"
-          onclick="voltarInicio()"
-        >
-          Voltar
-        </button>
-      </form>
-
-      <div id="mensagem" class="message" role="status"
-           aria-live="polite">
-      </div>
-    </section>
+    <p class="nota">
+      Os dados fornecidos devem ser verdadeiros.
+      Evite partilhar informações pessoais fora dos canais autorizados.
+    </p>
   </main>
 
-  <footer>
-    Novo Começo · Nampula, Moçambique
-    <br>
-    Recuperar vidas. Reconstruir futuros.
-  </footer>
+  <!-- Biblioteca oficial do Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <script>
-    function abrirCadastro() {
-      document.getElementById("inicio").hidden = true;
-      document.getElementById("cadastro").hidden = false;
-      window.scrollTo(0, 0);
-      document.getElementById("nome").focus();
+    // 1. SUBSTITUA ESTES DOIS VALORES PELOS DO SEU PROJETO SUPABASE
+    const SUPABASE_URL = "COLOQUE_AQUI_O_PROJECT_URL";
+    const SUPABASE_ANON_KEY = "COLOQUE_AQUI_A_CHAVE_PUBLICAVEL";
+
+    const form = document.getElementById("formCadastro");
+    const botao = document.getElementById("botaoEnviar");
+    const mensagem = document.getElementById("mensagem");
+
+    let supabaseClient = null;
+
+    // Preparar a ligação ao Supabase
+    try {
+      if (
+        SUPABASE_URL.startsWith("https://") &&
+        !SUPABASE_URL.includes("COLOQUE_AQUI") &&
+        SUPABASE_ANON_KEY.length > 20 &&
+        !SUPABASE_ANON_KEY.includes("COLOQUE_AQUI") &&
+        window.supabase
+      ) {
+        supabaseClient = window.supabase.createClient(
+          SUPABASE_URL,
+          SUPABASE_ANON_KEY
+        );
+      }
+    } catch (erro) {
+      console.error("Erro ao preparar o Supabase:", erro);
     }
 
-    function voltarInicio() {
-      document.getElementById("cadastro").hidden = true;
-      document.getElementById("inicio").hidden = false;
-
-      document.getElementById("mensagem").style.display = "none";
-      document.getElementById("formCadastro").style.display = "block";
-
-      window.scrollTo(0, 0);
+    function mostrarMensagem(texto, tipo) {
+      mensagem.textContent = texto;
+      mensagem.className = tipo;
     }
 
-    document.getElementById("formCadastro")
-      .addEventListener("submit", function(event) {
-        event.preventDefault();
+    form.addEventListener("submit", async function(event) {
+      event.preventDefault();
 
-        if (!this.reportValidity()) {
+      if (!form.reportValidity()) {
+        return;
+      }
+
+      if (!supabaseClient) {
+        mostrarMensagem(
+          "A ligação à base de dados ainda não está configurada. Verifique o Project URL e a chave publicável.",
+          "erro"
+        );
+        return;
+      }
+
+      const dados = {
+        nome: document.getElementById("nome").value.trim(),
+        idade: Number(document.getElementById("idade").value),
+        telefone: document.getElementById("telefone").value.trim(),
+        residencia: document.getElementById("residencia").value.trim(),
+        motivo: document.getElementById("motivo").value.trim()
+      };
+
+      if (
+        !dados.nome ||
+        !Number.isInteger(dados.idade) ||
+        dados.idade < 1 ||
+        !dados.telefone ||
+        !dados.residencia ||
+        !dados.motivo
+      ) {
+        mostrarMensagem(
+          "Verifique os dados preenchidos e tente novamente.",
+          "erro"
+        );
+        return;
+      }
+
+      botao.disabled = true;
+      botao.textContent = "A enviar...";
+      mensagem.className = "";
+      mensagem.textContent = "";
+
+      try {
+        const { error } = await supabaseClient
+          .from("cadastros")
+          .insert([dados]);
+
+        if (error) {
+          console.error("Erro do Supabase:", error);
+          mostrarMensagem(
+            "Não foi possível guardar o cadastro. Verifique a configuração da tabela e as permissões do Supabase.",
+            "erro"
+          );
           return;
         }
 
-        document.getElementById("formCadastro").style.display = "none";
+        mostrarMensagem(
+          "Cadastro enviado e guardado com sucesso!",
+          "sucesso"
+        );
 
-        const mensagem = document.getElementById("mensagem");
-        mensagem.textContent =
-          "O formulário foi preenchido com sucesso. " +
-          "Atenção: este é apenas um teste. Os teus dados " +
-          "não foram enviados nem guardados. O sistema de " +
-          "cadastro real ainda precisa de ser configurado.";
+        form.reset();
 
-        mensagem.style.display = "block";
-        window.scrollTo(0, 0);
-      });
+      } catch (erro) {
+        console.error("Erro ao enviar o cadastro:", erro);
+        mostrarMensagem(
+          "Ocorreu um erro de ligação. Verifique a Internet e tente novamente.",
+          "erro"
+        );
+      } finally {
+        botao.disabled = false;
+        botao.textContent = "Enviar cadastro";
+      }
+    });
   </script>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 </body>
 </html>
+             
