@@ -4,12 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NOVO COMEÇO | Cadastro</title>
+  <title>NOVO COMEÇO — Cadastro</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -23,57 +21,36 @@
       max-width: 520px;
       margin: 25px auto;
       padding: 25px;
-      background: #ffffff;
+      background: white;
       border-radius: 14px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 5px 20px #00000012;
     }
 
-    header {
-      text-align: center;
-      margin-bottom: 25px;
-    }
-
-    header h1 {
-      margin-bottom: 8px;
-      color: #166534;
-    }
-
-    header p {
-      color: #64748b;
-      line-height: 1.5;
-    }
+    header { text-align: center; margin-bottom: 25px; }
+    header h1 { color: #166534; }
+    header p { color: #64748b; line-height: 1.5; }
 
     label {
       display: block;
-      margin-top: 16px;
-      margin-bottom: 7px;
+      margin: 16px 0 7px;
       font-weight: bold;
     }
 
-    input, textarea, select {
+    input, textarea {
       width: 100%;
       padding: 12px;
       border: 1px solid #cbd5e1;
       border-radius: 8px;
       font-size: 16px;
-      background: white;
     }
 
-    input:focus, textarea:focus, select:focus {
-      outline: 2px solid #86efac;
-      border-color: #15803d;
-    }
-
-    textarea {
-      min-height: 100px;
-      resize: vertical;
-    }
+    textarea { min-height: 100px; resize: vertical; }
 
     button {
       width: 100%;
       margin-top: 24px;
       padding: 14px;
-      border: none;
+      border: 0;
       border-radius: 8px;
       background: #15803d;
       color: white;
@@ -82,18 +59,15 @@
       cursor: pointer;
     }
 
-    button:disabled {
-      background: #94a3b8;
-      cursor: wait;
-    }
+    button:disabled { opacity: 0.65; cursor: wait; }
 
     #mensagem {
       display: none;
       margin-top: 18px;
       padding: 12px;
       border-radius: 8px;
-      line-height: 1.5;
       overflow-wrap: anywhere;
+      line-height: 1.5;
     }
 
     #mensagem.sucesso {
@@ -110,8 +84,8 @@
 
     .nota {
       margin-top: 18px;
-      font-size: 13px;
       color: #64748b;
+      font-size: 13px;
       line-height: 1.5;
     }
   </style>
@@ -121,56 +95,32 @@
   <main class="container">
     <header>
       <h1>NOVO COMEÇO</h1>
-      <p>Preencha os dados abaixo para realizar o seu cadastro.</p>
+      <p>Preencha os seus dados para realizar o cadastro.</p>
     </header>
 
     <form id="formCadastro">
       <label for="nome">Nome completo</label>
-      <input
-        type="text"
-        id="nome"
-        name="nome"
-        autocomplete="name"
-        required
-      >
+      <input id="nome" name="nome" type="text"
+             autocomplete="name" required>
 
       <label for="idade">Idade</label>
-      <input
-        type="number"
-        id="idade"
-        name="idade"
-        min="1"
-        max="120"
-        required
-      >
+      <input id="idade" name="idade" type="number"
+             min="1" max="120" step="1" required>
 
-      <label for="telefone">Número de telefone</label>
-      <input
-        type="tel"
-        id="telefone"
-        name="telefone"
-        autocomplete="tel"
-        required
-      >
+      <label for="telefone">Telefone</label>
+      <input id="telefone" name="telefone" type="tel"
+             autocomplete="tel" required>
 
       <label for="residencia">Residência</label>
-      <input
-        type="text"
-        id="residencia"
-        name="residencia"
-        autocomplete="street-address"
-        required
-      >
+      <input id="residencia" name="residencia" type="text"
+             autocomplete="street-address" required>
 
       <label for="motivo">Motivo do cadastro</label>
-      <textarea
-        id="motivo"
-        name="motivo"
-        placeholder="Explique o motivo do seu cadastro..."
-        required
-      ></textarea>
+      <textarea id="motivo" name="motivo"
+                placeholder="Escreva o motivo do seu cadastro..."
+                required></textarea>
 
-      <button type="submit" id="botaoEnviar">
+      <button id="botaoEnviar" type="submit">
         Enviar cadastro
       </button>
 
@@ -178,18 +128,21 @@
     </form>
 
     <p class="nota">
-      Os dados fornecidos devem ser verdadeiros.
-      Evite partilhar informações pessoais fora dos canais autorizados.
+      Os dados serão enviados para a base de dados do projeto.
+      Forneça apenas informações necessárias ao cadastro.
     </p>
   </main>
 
-  <!-- Biblioteca oficial do Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <script>
-    // 1. SUBSTITUA ESTES DOIS VALORES PELOS DO SEU PROJETO SUPABASE
-    const SUPABASE_URL = "COLOQUE_AQUI_O_PROJECT_URL";
-    const SUPABASE_ANON_KEY = "COLOQUE_AQUI_A_CHAVE_PUBLICAVEL";
+    // CONFIGURAÇÃO DO SUPABASE
+    const SUPABASE_URL =
+      "https://khvfpxpgxilxxyqufcxj.supabase.co";
+
+    // Substitua pelo valor da chave pública do MESMO projeto.
+    const SUPABASE_ANON_KEY =
+      "COLOQUE_AQUI_A_CHAVE_PUBLICAVEL_DO_MESMO_PROJETO";
 
     const form = document.getElementById("formCadastro");
     const botao = document.getElementById("botaoEnviar");
@@ -197,22 +150,15 @@
 
     let supabaseClient = null;
 
-    // Preparar a ligação ao Supabase
-    try {
-      if (
-        SUPABASE_URL.startsWith("https://") &&
-        !SUPABASE_URL.includes(eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtodmZweHBneGlseHh5cXVmY3hqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMwMDAwNzksImV4cCI6MjEwODU3NjA3OX0.2jm3sJ0rX8uvGsJIxE-Udm6mwqeKBbS3tuqlMmft0rk &&
-        SUPABASE_ANON_KEY.length > 20 &&
-        !SUPABASE_ANON_KEY.includes(eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtodmZweHBneGlseHh5cXVmY3hqIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc5MzAwMDA3OSwiZXhwIjoyMTA4NTc2MDc5fQ.74KnipHnIEp3SBuaPwpzy9vh6kbQ4fSKXnZPlWtI3gs &&
-        window.supabase
-      ) {
-        supabaseClient = window.supabase.createClient(
-          SUPABASE_URL,
-          SUPABASE_ANON_KEY
-        );
-      }
-    } catch (erro) {
-      console.error("Erro ao preparar o Supabase:", erro);
+    if (
+      window.supabase &&
+      SUPABASE_URL.startsWith("https://") &&
+      !SUPABASE_ANON_KEY.includes("COLOQUE_AQUI")
+    ) {
+      supabaseClient = window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY
+      );
     }
 
     function mostrarMensagem(texto, tipo) {
@@ -223,13 +169,11 @@
     form.addEventListener("submit", async function(event) {
       event.preventDefault();
 
-      if (!form.reportValidity()) {
-        return;
-      }
+      if (!form.reportValidity()) return;
 
       if (!supabaseClient) {
         mostrarMensagem(
-          "A ligação à base de dados ainda não está configurada. Verifique o Project URL e a chave publicável.",
+          "A ligação ainda não está configurada. Confirme o URL e a chave publicável.",
           "erro"
         );
         return;
@@ -252,7 +196,7 @@
         !dados.motivo
       ) {
         mostrarMensagem(
-          "Verifique os dados preenchidos e tente novamente.",
+          "Verifique todos os campos e tente novamente.",
           "erro"
         );
         return;
@@ -261,7 +205,6 @@
       botao.disabled = true;
       botao.textContent = "A enviar...";
       mensagem.className = "";
-      mensagem.textContent = "";
 
       try {
         const { error } = await supabaseClient
@@ -269,9 +212,9 @@
           .insert([dados]);
 
         if (error) {
-          console.error("Erro do Supabase:", error);
+          console.error("Erro Supabase:", error);
           mostrarMensagem(
-            "Não foi possível guardar o cadastro. Verifique a configuração da tabela e as permissões do Supabase.",
+            "Não foi possível guardar o cadastro. Confirme as colunas da tabela e as permissões de inserção.",
             "erro"
           );
           return;
@@ -281,13 +224,12 @@
           "Cadastro enviado e guardado com sucesso!",
           "sucesso"
         );
-
         form.reset();
 
       } catch (erro) {
-        console.error("Erro ao enviar o cadastro:", erro);
+        console.error("Erro de ligação:", erro);
         mostrarMensagem(
-          "Ocorreu um erro de ligação. Verifique a Internet e tente novamente.",
+          "Erro de ligação. Verifique a Internet e tente novamente.",
           "erro"
         );
       } finally {
@@ -298,4 +240,3 @@
   </script>
 </body>
 </html>
-             
