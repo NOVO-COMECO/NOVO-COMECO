@@ -2,642 +2,418 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#064e3b">
-  <meta name="description" content="Novo Começo — Recuperar vidas. Reconstruir futuros.">
-  <title>Novo Começo | Recuperar vidas, reconstruir futuros</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#064e3b">
+<meta name="description" content="Novo Começo — Recuperar vidas. Reconstruir futuros.">
+<title>Novo Começo | Recuperar vidas, reconstruir futuros</title>
 
-  <style>
-    :root {
-      --verde: #064e3b;
-      --verde-claro: #087653;
-      --dourado: #d8ad45;
-      --branco: #ffffff;
-      --fundo: #f5f8f5;
-      --texto: #26352e;
-    }
+<style>
+:root {
+  --verde:#064e3b;
+  --verde-claro:#087653;
+  --dourado:#d8ad45;
+  --branco:#fff;
+  --fundo:#f5f8f5;
+  --texto:#26352e;
+}
+* {box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+body {font-family:Arial,Helvetica,sans-serif;background:var(--fundo);color:var(--texto);line-height:1.7}
+a {text-decoration:none}
+header {background:var(--verde);color:white;padding:17px 6%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.logo {font-size:23px;font-weight:bold;color:var(--dourado)}
+nav {display:flex;flex-wrap:wrap;gap:15px}
+nav a {color:white;font-size:14px}
+nav a:hover {color:var(--dourado)}
+.hero {background:linear-gradient(135deg,#043d2f,#087653);color:white;padding:85px 7%;text-align:center}
+.hero .etiqueta {color:var(--dourado);font-weight:bold;letter-spacing:2px;text-transform:uppercase;font-size:13px}
+.hero h1 {font-size:clamp(34px,6vw,58px);line-height:1.15;margin:20px auto;max-width:850px}
+.hero p {max-width:680px;margin:0 auto 28px;color:#e6f2ec;font-size:17px}
+.botao {display:inline-block;background:var(--dourado);color:#183426;padding:13px 23px;border-radius:7px;font-weight:bold;margin:5px}
+.botao-contorno {background:transparent;border:1px solid var(--dourado);color:white}
+section {padding:55px 7%;scroll-margin-top:20px}
+.titulo {text-align:center;margin-bottom:30px}
+.titulo h2 {color:var(--verde);font-size:clamp(27px,4vw,36px);margin-bottom:10px}
+.titulo p {max-width:680px;margin:auto}
+.temas {display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:16px;max-width:1100px;margin:auto;align-items:start}
+.tema {background:white;border:1px solid #e0e8e1;border-radius:10px;box-shadow:0 4px 14px #0000000a;overflow:hidden}
+.tema summary {list-style:none;cursor:pointer;padding:20px;display:flex;align-items:center;gap:13px;color:var(--verde);font-weight:bold;font-size:16px}
+.tema summary::-webkit-details-marker {display:none}
+.tema summary::after {content:"+";margin-left:auto;font-size:23px;color:var(--verde-claro)}
+.tema[open] summary::after {content:"−"}
+.tema summary:hover {background:#edf5ef}
+.tema-icone {font-size:25px;flex-shrink:0}
+.tema-conteudo {padding:0 20px 22px;border-top:1px solid #edf0ed}
+.tema-conteudo h3 {color:var(--verde);margin:17px 0 7px;font-size:17px}
+.tema-conteudo p {margin:10px 0}
+.tema-conteudo ul {padding-left:21px;margin:10px 0}
+.tema-conteudo li {margin:6px 0}
+.aviso {margin-top:15px;padding:13px;background:#edf5ef;border-left:4px solid var(--dourado);border-radius:4px}
+.faixa {background:white}
+.apoio {background:#e8f2eb;text-align:center}
+.apoio-conteudo {max-width:780px;margin:auto}
+.apoio h2 {color:var(--verde);font-size:32px;margin-bottom:15px}
+.nota {font-size:13px;margin-top:15px;color:#43574a}
+footer {background:#032e23;color:white;text-align:center;padding:30px 6%}
+footer .logo {display:block;margin-bottom:8px}
+footer p {font-size:14px;margin:5px 0}
+.rodape-links {margin:15px 0}
+.rodape-links a {color:var(--dourado);margin:0 9px}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-    }
+/* Atendimento automático */
+.chat-abrir {position:fixed;right:16px;bottom:16px;z-index:1000;border:0;border-radius:30px;padding:14px 17px;background:var(--dourado);color:#183426;font-size:14px;font-weight:bold;cursor:pointer;box-shadow:0 5px 18px #0003}
+.chat-painel {display:none;position:fixed;right:16px;bottom:78px;z-index:1001;width:min(370px,calc(100vw - 24px));max-height:min(570px,calc(100dvh - 100px));background:white;border:1px solid #d7e3da;border-radius:15px;overflow:hidden;box-shadow:0 12px 35px #0003}
+.chat-painel.aberto {display:flex;flex-direction:column}
+.chat-topo {background:var(--verde);color:white;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.chat-topo strong {display:block;font-size:16px}
+.chat-topo small {font-size:12px;color:#e2eee7}
+.chat-fechar {border:0;background:transparent;color:white;font-size:27px;line-height:1;cursor:pointer;padding:0 5px}
+.chat-corpo {padding:14px;overflow-y:auto;flex:1;background:#f5f8f5;min-height:180px}
+.chat-resposta {background:white;border:1px solid #e0e8e1;padding:12px;border-radius:10px;margin-bottom:10px;font-size:14px;line-height:1.5;overflow-wrap:anywhere}
+.chat-opcoes {display:grid;gap:7px;margin-top:12px}
+.chat-opcao {display:block;width:100%;padding:10px;border:1px solid #b9d1c1;border-radius:8px;background:white;color:var(--verde);text-align:left;font-weight:bold;font-size:13px;cursor:pointer}
+.chat-opcao:hover {background:#edf5ef}
+.chat-youtube {display:inline-block;background:var(--verde);color:white;padding:9px 12px;border-radius:7px;margin-top:10px;font-weight:bold;font-size:13px}
+.chat-rodape {padding:10px 14px;background:white;border-top:1px solid #e3e9e4}
+.chat-rodape p {font-size:11px;color:#53645a;line-height:1.4}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--fundo);
-      color: var(--texto);
-      line-height: 1.7;
-    }
-
-    a { text-decoration: none; }
-
-    header {
-      background: var(--verde);
-      color: var(--branco);
-      padding: 17px 6%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .logo {
-      font-size: 23px;
-      font-weight: bold;
-      color: var(--dourado);
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-
-    nav a {
-      color: var(--branco);
-      font-size: 14px;
-    }
-
-    nav a:hover { color: var(--dourado); }
-
-    /* PÁGINA INICIAL MANTIDA */
-    .hero {
-      background: linear-gradient(135deg, #043d2f, #087653);
-      color: var(--branco);
-      padding: 85px 7%;
-      text-align: center;
-    }
-
-    .hero .etiqueta {
-      color: var(--dourado);
-      font-weight: bold;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-size: 13px;
-    }
-
-    .hero h1 {
-      font-size: clamp(34px, 6vw, 58px);
-      line-height: 1.15;
-      margin: 20px auto;
-      max-width: 850px;
-    }
-
-    .hero p {
-      max-width: 680px;
-      margin: 0 auto 28px;
-      color: #e6f2ec;
-      font-size: 17px;
-    }
-
-    .botao {
-      display: inline-block;
-      background: var(--dourado);
-      color: #183426;
-      padding: 13px 23px;
-      border-radius: 7px;
-      font-weight: bold;
-      margin: 5px;
-      transition: 0.2s;
-    }
-
-    .botao:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.05);
-    }
-
-    .botao-contorno {
-      background: transparent;
-      border: 1px solid var(--dourado);
-      color: var(--branco);
-    }
-
-    /* CONTEÚDO ORGANIZADO POR TEMAS */
-    section {
-      padding: 55px 7%;
-      scroll-margin-top: 20px;
-    }
-
-    .titulo {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .titulo h2 {
-      color: var(--verde);
-      font-size: clamp(27px, 4vw, 36px);
-      margin-bottom: 10px;
-    }
-
-    .titulo p {
-      max-width: 680px;
-      margin: auto;
-    }
-
-    .temas {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
-      gap: 16px;
-      max-width: 1100px;
-      margin: auto;
-      align-items: start;
-    }
-
-    .tema {
-      background: var(--branco);
-      border: 1px solid #e0e8e1;
-      border-radius: 10px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.04);
-      overflow: hidden;
-    }
-
-    .tema summary {
-      list-style: none;
-      cursor: pointer;
-      padding: 20px;
-      display: flex;
-      align-items: center;
-      gap: 13px;
-      color: var(--verde);
-      font-weight: bold;
-      font-size: 16px;
-    }
-
-    .tema summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .tema summary::after {
-      content: "+";
-      margin-left: auto;
-      font-size: 23px;
-      color: var(--verde-claro);
-    }
-
-    .tema[open] summary::after {
-      content: "−";
-    }
-
-    .tema summary:hover {
-      background: #edf5ef;
-    }
-
-    .tema-icone {
-      font-size: 25px;
-      flex-shrink: 0;
-    }
-
-    .tema-conteudo {
-      padding: 0 20px 22px;
-      border-top: 1px solid #edf0ed;
-    }
-
-    .tema-conteudo h3 {
-      color: var(--verde);
-      margin: 17px 0 7px;
-      font-size: 17px;
-    }
-
-    .tema-conteudo p {
-      margin: 10px 0;
-    }
-
-    .tema-conteudo ul {
-      padding-left: 21px;
-      margin: 10px 0;
-    }
-
-    .tema-conteudo li {
-      margin: 6px 0;
-    }
-
-    .aviso {
-      margin-top: 15px;
-      padding: 13px;
-      background: #edf5ef;
-      border-left: 4px solid var(--dourado);
-      border-radius: 4px;
-    }
-
-    .faixa {
-      background: var(--branco);
-    }
-
-    .apoio {
-      background: #e8f2eb;
-      text-align: center;
-    }
-
-    .apoio-conteudo {
-      max-width: 780px;
-      margin: auto;
-    }
-
-    .apoio h2 {
-      color: var(--verde);
-      font-size: 32px;
-      margin-bottom: 15px;
-    }
-
-    .nota {
-      font-size: 13px;
-      margin-top: 15px;
-      color: #43574a;
-    }
-
-    footer {
-      background: #032e23;
-      color: var(--branco);
-      text-align: center;
-      padding: 30px 6%;
-    }
-
-    footer .logo {
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    footer p {
-      font-size: 14px;
-      margin: 5px 0;
-    }
-
-    .rodape-links {
-      margin: 15px 0;
-    }
-
-    .rodape-links a {
-      color: var(--dourado);
-      margin: 0 9px;
-    }
-
-    @media (max-width: 600px) {
-      header {
-        justify-content: center;
-        text-align: center;
-      }
-
-      nav {
-        justify-content: center;
-        gap: 10px 14px;
-      }
-
-      .hero { padding: 60px 6%; }
-      section { padding: 45px 6%; }
-      .temas { grid-template-columns: 1fr; }
-    }
-  </style>
+@media(max-width:600px) {
+  header {justify-content:center;text-align:center}
+  nav {justify-content:center;gap:10px 14px}
+  .hero {padding:60px 6%}
+  section {padding:45px 6%}
+  .temas {grid-template-columns:1fr}
+  .chat-abrir {right:10px;bottom:10px;padding:13px 15px}
+  .chat-painel {right:10px;bottom:72px;width:calc(100vw - 20px);max-height:calc(100dvh - 90px)}
+}
+</style>
 </head>
 
 <body>
+<header>
+  <a class="logo" href="#inicio">NOVO COMEÇO</a>
+  <nav aria-label="Menu principal">
+    <a href="#inicio">Início</a>
+    <a href="#temas">Temas</a>
+    <a href="#horarios">Horários</a>
+    <a href="#apoio">Apoio</a>
+  </nav>
+</header>
 
-  <header>
-    <a class="logo" href="#inicio">NOVO COMEÇO</a>
+<main>
+<section class="hero" id="inicio">
+  <div class="etiqueta">Educação • Prevenção • Esperança</div>
+  <h1>Um novo começo pode mudar uma vida.</h1>
+  <p>Trabalhamos para sensibilizar sobre os riscos das apostas, promover escolhas conscientes e ajudar pessoas e famílias a reconstruir os seus futuros.</p>
+  <a class="botao" href="https://whatsapp.com/channel/0029VbE4e434Y9lmZIuOL0N" target="_blank" rel="noopener noreferrer">Acompanhar o projecto</a>
+  <a class="botao botao-contorno" href="#apoio">Procurar apoio</a>
+</section>
 
-    <nav aria-label="Menu principal">
-      <a href="#inicio">Início</a>
-      <a href="#temas">Temas</a>
-      <a href="#horarios">Horários</a>
-      <a href="#apoio">Apoio</a>
-    </nav>
-  </header>
+<section id="temas">
+  <div class="titulo">
+    <h2>Explore os nossos temas</h2>
+    <p>Escolha o assunto que deseja conhecer. Clique num tema para abrir as informações.</p>
+  </div>
 
-  <!-- PÁGINA INICIAL: CONTEÚDO ORIGINAL -->
-  <main>
-    <section class="hero" id="inicio">
-      <div class="etiqueta">Educação • Prevenção • Esperança</div>
-
-      <h1>Um novo começo pode mudar uma vida.</h1>
-
-      <p>
-        Trabalhamos para sensibilizar sobre os riscos das apostas,
-        promover escolhas conscientes e ajudar pessoas e famílias
-        a reconstruir os seus futuros.
-      </p>
-
-      <a class="botao"
-         href="https://whatsapp.com/channel/0029VbE4e434Y9lmZIuOL0N"
-         target="_blank" rel="noopener noreferrer">
-        Acompanhar o projecto
-      </a>
-
-      <a class="botao botao-contorno" href="#apoio">
-        Procurar apoio
-      </a>
-    </section>
-
-    <!-- TEMAS VISÍVEIS E INFORMAÇÕES EXPANSÍVEIS -->
-    <section id="temas">
-      <div class="titulo">
-        <h2>Explore os nossos temas</h2>
-        <p>
-          Escolha o assunto que deseja conhecer.
-          Clique num tema para abrir as informações.
-        </p>
+  <div class="temas">
+    <details class="tema">
+      <summary><span class="tema-icone">🌱</span><span>1. Quem somos</span></summary>
+      <div class="tema-conteudo">
+        <h3>Sobre o Novo Começo</h3>
+        <p>O Novo Começo é um projecto social que promove a educação, a prevenção dos problemas relacionados com as apostas e a construção de novas oportunidades.</p>
+        <p>A nossa missão é partilhar informação, incentivar decisões conscientes e encorajar pessoas e famílias a procurar apoio.</p>
+        <div class="aviso"><strong>O nosso lema:</strong> Recuperar vidas. Reconstruir futuros.</div>
       </div>
+    </details>
 
-      <div class="temas">
-
-        <details class="tema">
-          <summary>
-            <span class="tema-icone">🌱</span>
-            <span>1. Quem somos</span>
-          </summary>
-          <div class="tema-conteudo">
-            <h3>Sobre o Novo Começo</h3>
-            <p>
-              O Novo Começo é um projecto social que promove a educação,
-              a prevenção dos problemas relacionados com as apostas
-              e a construção de novas oportunidades.
-            </p>
-            <p>
-              A nossa missão é partilhar informação, incentivar decisões
-              conscientes e encorajar pessoas e famílias a procurar apoio.
-            </p>
-            <div class="aviso">
-              <strong>O nosso lema:</strong>
-              Recuperar vidas. Reconstruir futuros.
-            </div>
-          </div>
-        </details>
-
-        <details class="tema">
-          <summary>
-            <span class="tema-icone">🎯</span>
-            <span>2. Compreender as apostas</span>
-          </summary>
-          <div class="tema-conteudo">
-            <h3>O que são apostas?</h3>
-            <p>
-              As apostas envolvem arriscar dinheiro ou outros valores
-              num resultado incerto, por exemplo, num evento desportivo.
-            </p>
-            <h3>O que é importante saber?</h3>
-            <ul>
-              <li>Não existe garantia de ganhar.</li>
-              <li>Uma vitória não garante vitórias futuras.</li>
-              <li>É possível perder dinheiro que seria necessário para despesas essenciais.</li>
-              <li>Não se deve considerar as apostas uma fonte segura de rendimento.</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="tema">
-          <summary>
-            <span class="tema-icone">🛡️</span>
-            <span>3. Prevenção das apostas</span>
-          </summary>
-          <div class="tema-conteudo">
-            <h3>Como prevenir problemas?</h3>
-            <ul>
-              <li>Conheça os riscos antes de tomar decisões.</li>
-              <li>Não utilize dinheiro destinado à alimentação, renda, transporte ou família.</li>
-              <li>Não peça empréstimos para apostar.</li>
-              <li>Evite tentar recuperar perdas através de novas apostas.</li>
-              <li>Procure actividades saudáveis para ocupar o tempo.</li>
-            </ul>
-            <p>
-              Prevenir começa com informação e com decisões que protegem
-              o seu bem-estar e o da sua família.
-            </p>
-          </div>
-        </details>
-
-        <details class="tema">
-          <summary>
-            <span class="tema-icone">🔎</span>
-            <span>4. Sinais de alerta</span>
-          </summary>
-          <div class="tema-conteudo">
-            <h3>Quando é necessário prestar atenção?</h3>
-            <ul>
-              <li>Pensar frequentemente em apostar.</li>
-              <li>Gastar mais dinheiro do que tinha planeado.</li>
-              <li>Tentar recuperar dinheiro perdido apostando novamente.</li>
-              <li>Esconder as apostas ou mentir sobre o dinheiro gasto.</li>
-              <li>Negligenciar trabalho, estudos ou responsabilidades familiares.</li>
-              <li>Sentir dificuldade em parar, mesmo quando deseja fazê-lo.</li>
-            </ul>
-            <p>
-              Estes sinais não constituem, por si só, um diagnóstico,
-              mas podem indicar que é importante procurar ajuda.
-            </p>
-          </div>
-        </details>
-
-        <details class="tema">
-          <summary>
-            <span class="tema-icone">💔</span>
-            <span>5. Consequências das apostas</span>
-          </summary>
-          <div class="tema-conteudo">
-            <h3>Impactos possíveis</h3>
-            <p>
-              Quando as apostas deixam de estar sob controlo, podem afectar
-              várias áreas da vida.
-            </p>
-            <ul>
-              <li><strong>Financeira:</strong> dívidas e perda de dinheiro necessário.</li>
-              <li><strong>Familiar:</strong> conflitos e perda de confiança.</li>
-              <li><strong>Profissional:</strong> dificuldades no trabalho ou nos estudos.</li>
-              <li><strong>Emocional:</strong> stress, culpa, ansiedade ou desânimo.</li>
-            </ul>
-            <p>
-              Reconhecer os problemas é um passo importante para começar
-              a procurar soluções.
-            </p>
-          </div>
-        </details>
-
-        <details class="tema">
-          <summary>
-            <span class="tema-icone">🤝</span>
-            <span>6. Apoio para pessoas e famílias</span>
-          </summary>
-          <div class="tema-conteudo">
-            <h3>Como dar o primeiro passo?</h3>
-            <ul>
-              <li>Converse com uma pessoa de confiança.</li>
-              <li>Procure um profissional de saúde quando as apostas afectarem o seu bem-estar.</li>
-              <li>Peça ajuda para organizar as suas despesas e dívidas.</li>
-              <li>Evite julgar ou humilhar alguém que esteja a enfrentar este problema.</li>
-              <li>Incentive a procura de apoio de forma respeitosa.</li>
-            </ul>
-            <p>
-              Familiares e amigos podem oferecer apoio, mas não precisam
-              de resolver tudo sozinhos.
-            </p>
-            <a class="botao"
-               href="https://whatsapp.com/channel/0029VbE4e434Y9lmZIuOL0N"
-               target="_blank" rel="noopener noreferrer">
-              Visitar o nosso canal
-            </a>
-          </div>
-        </details>
-
-        <details class="tema">
-          <summary>
-            <span class="tema-icone">💰</span>
-            <span>7. Orientação financeira</span>
-          </summary>
-          <div class="tema-conteudo">
-            <h3>Como começar a reorganizar as finanças?</h3>
-            <ul>
-              <li>Anote o dinheiro que recebe e as despesas que tem.</li>
-              <li>Priorize alimentação, habitação, transporte e outras necessidades básicas.</li>
-              <li>Registe as dívidas e organize um plano realista para as pagar.</li>
-              <li>Evite contrair novas dívidas para apostar ou recuperar perdas.</li>
-              <li>Defina objectivos financeiros pequenos e alcançáveis.</li>
-            </ul>
-            <div class="aviso">
-              Estas são orientações educativas gerais, não uma avaliação
-              financeira individual.
-            </div>
-          </div>
-        </details>
-
-        <details class="tema">
-          <summary>
-            <span class="tema-icone">📚</span>
-            <span>8. Actividades e palestras</span>
-          </summary>
-          <div class="tema-conteudo">
-            <h3>O que promovemos?</h3>
-            <ul>
-              <li>Palestras educativas e sensibilização.</li>
-              <li>Informação sobre prevenção das apostas.</li>
-              <li>Mensagens de motivação e novas oportunidades.</li>
-              <li>Orientação educativa sobre organização financeira.</li>
-            </ul>
-            <p>
-              As palestras estão previstas para sábados e domingos,
-              das 19h30 às 20h30. Consulte os canais oficiais para
-              confirmar as actividades.
-            </p>
-            <a class="botao"
-               href="https://www.youtube.com/@Novo-Comeco-m6u"
-               target="_blank" rel="noopener noreferrer">
-              Visitar o YouTube
-            </a>
-          </div>
-        </details>
-
+    <details class="tema">
+      <summary><span class="tema-icone">🎯</span><span>2. Compreender as apostas</span></summary>
+      <div class="tema-conteudo">
+        <h3>O que são apostas?</h3>
+        <p>As apostas envolvem arriscar dinheiro ou outros valores num resultado incerto, por exemplo, num evento desportivo.</p>
+        <h3>O que é importante saber?</h3>
+        <ul>
+          <li>Não existe garantia de ganhar.</li>
+          <li>Uma vitória não garante vitórias futuras.</li>
+          <li>É possível perder dinheiro necessário para despesas essenciais.</li>
+          <li>Não se deve considerar as apostas uma fonte segura de rendimento.</li>
+        </ul>
       </div>
-    </section>
+    </details>
 
-    <!-- HORÁRIOS -->
-    <section class="faixa" id="horarios">
-      <div class="titulo">
-        <h2>Horários de atendimento</h2>
-        <p>Consulte os horários habituais do projecto.</p>
+    <details class="tema">
+      <summary><span class="tema-icone">🛡️</span><span>3. Prevenção das apostas</span></summary>
+      <div class="tema-conteudo">
+        <h3>Como prevenir problemas?</h3>
+        <ul>
+          <li>Conheça os riscos antes de tomar decisões.</li>
+          <li>Não utilize dinheiro destinado à alimentação, renda, transporte ou família.</li>
+          <li>Não peça empréstimos para apostar.</li>
+          <li>Evite tentar recuperar perdas através de novas apostas.</li>
+          <li>Procure actividades saudáveis para ocupar o tempo.</li>
+        </ul>
+        <p>Prevenir começa com informação e decisões que protegem o seu bem-estar e o da sua família.</p>
       </div>
+    </details>
 
-      <div class="temas">
-        <article class="tema">
-          <div class="tema-conteudo" style="padding-top: 20px;">
-            <h3>Atendimento</h3>
-            <p>Segunda a sexta-feira</p>
-            <p><strong>10h00 às 20h30</strong></p>
-          </div>
-        </article>
-
-        <article class="tema">
-          <div class="tema-conteudo" style="padding-top: 20px;">
-            <h3>Palestras</h3>
-            <p>Sábados e domingos</p>
-            <p><strong>19h30 às 20h30</strong></p>
-          </div>
-        </article>
+    <details class="tema">
+      <summary><span class="tema-icone">🔎</span><span>4. Sinais de alerta</span></summary>
+      <div class="tema-conteudo">
+        <h3>Quando é necessário prestar atenção?</h3>
+        <ul>
+          <li>Pensar frequentemente em apostar.</li>
+          <li>Gastar mais dinheiro do que tinha planeado.</li>
+          <li>Tentar recuperar dinheiro perdido apostando novamente.</li>
+          <li>Esconder as apostas ou mentir sobre o dinheiro gasto.</li>
+          <li>Negligenciar trabalho, estudos ou responsabilidades familiares.</li>
+          <li>Sentir dificuldade em parar, mesmo quando deseja fazê-lo.</li>
+        </ul>
+        <p>Estes sinais não constituem, por si só, um diagnóstico, mas podem indicar que é importante procurar ajuda.</p>
       </div>
+    </details>
 
-      <p class="nota" style="text-align:center;">
-        As actividades podem depender de confirmação prévia através
-        dos canais oficiais do projecto.
-      </p>
-    </section>
-
-    <!-- APOIO -->
-    <section class="apoio" id="apoio">
-      <div class="apoio-conteudo">
-        <h2>Não precisa de enfrentar tudo sozinho.</h2>
-        <p>
-          Se as apostas estão a afectar a sua vida ou a sua família,
-          dê o primeiro passo. Aceda ao nosso canal para acompanhar
-          as informações e actividades do Novo Começo.
-        </p>
-
-        <a class="botao"
-           href="https://whatsapp.com/channel/0029VbE4e434Y9lmZIuOL0N"
-           target="_blank" rel="noopener noreferrer">
-          Aceder ao WhatsApp
-        </a>
-
-        <p class="nota">
-          O canal é destinado à informação e sensibilização. Não substitui
-          acompanhamento psicológico, médico ou aconselhamento financeiro
-          profissional.
-        </p>
+    <details class="tema">
+      <summary><span class="tema-icone">💔</span><span>5. Consequências das apostas</span></summary>
+      <div class="tema-conteudo">
+        <h3>Impactos possíveis</h3>
+        <p>Quando as apostas deixam de estar sob controlo, podem afectar várias áreas da vida.</p>
+        <ul>
+          <li><strong>Financeira:</strong> dívidas e perda de dinheiro necessário.</li>
+          <li><strong>Familiar:</strong> conflitos e perda de confiança.</li>
+          <li><strong>Profissional:</strong> dificuldades no trabalho ou nos estudos.</li>
+          <li><strong>Emocional:</strong> stress, culpa, ansiedade ou desânimo.</li>
+        </ul>
+        <p>Reconhecer os problemas é um passo importante para começar a procurar soluções.</p>
       </div>
-    </section>
+    </details>
 
-    <section>
-      <div class="titulo">
-        <h2>Junte-se ao Novo Começo</h2>
-        <p>
-          Partilhe informação útil e ajude a promover uma vida
-          com mais consciência, esperança e oportunidades.
-        </p>
-
-        <a class="botao"
-           href="https://whatsapp.com/channel/0029VbE4e434Y9lmZIuOL0N"
-           target="_blank" rel="noopener noreferrer">
-          Canal WhatsApp
-        </a>
-
-        <a class="botao"
-           href="https://www.youtube.com/@Novo-Comeco-m6u"
-           target="_blank" rel="noopener noreferrer">
-          Canal YouTube
-        </a>
+    <details class="tema">
+      <summary><span class="tema-icone">🤝</span><span>6. Apoio para pessoas e famílias</span></summary>
+      <div class="tema-conteudo">
+        <h3>Como dar o primeiro passo?</h3>
+        <ul>
+          <li>Converse com uma pessoa de confiança.</li>
+          <li>Procure um profissional de saúde quando as apostas afectarem o seu bem-estar.</li>
+          <li>Peça ajuda para organizar as suas despesas e dívidas.</li>
+          <li>Evite julgar ou humilhar alguém que esteja a enfrentar este problema.</li>
+          <li>Incentive a procura de apoio de forma respeitosa.</li>
+        </ul>
+        <p>Familiares e amigos podem oferecer apoio, mas não precisam de resolver tudo sozinhos.</p>
+        <a class="botao" href="https://whatsapp.com/channel/0029VbE4e434Y9lmZIuOL0N" target="_blank" rel="noopener noreferrer">Visitar o nosso canal</a>
       </div>
-    </section>
-  </main>
+    </details>
 
-  <footer>
-    <span class="logo">NOVO COMEÇO</span>
-    <p>Recuperar vidas. Reconstruir futuros.</p>
-    <p>Nampula, Moçambique</p>
+    <details class="tema">
+      <summary><span class="tema-icone">💰</span><span>7. Orientação financeira</span></summary>
+      <div class="tema-conteudo">
+        <h3>Como começar a reorganizar as finanças?</h3>
+        <ul>
+          <li>Anote o dinheiro que recebe e as despesas que tem.</li>
+          <li>Priorize alimentação, habitação, transporte e outras necessidades básicas.</li>
+          <li>Registe as dívidas e organize um plano realista para as pagar.</li>
+          <li>Evite contrair novas dívidas para apostar ou recuperar perdas.</li>
+          <li>Defina objectivos financeiros pequenos e alcançáveis.</li>
+        </ul>
+        <div class="aviso">Estas são orientações educativas gerais, não uma avaliação financeira individual.</div>
+      </div>
+    </details>
 
-    <div class="rodape-links">
-      <a href="#temas">Temas</a>
-      <a href="#horarios">Horários</a>
-      <a href="#apoio">Apoio</a>
+    <details class="tema">
+      <summary><span class="tema-icone">📚</span><span>8. Actividades e palestras</span></summary>
+      <div class="tema-conteudo">
+        <h3>O que promovemos?</h3>
+        <ul>
+          <li>Palestras educativas e sensibilização.</li>
+          <li>Informação sobre prevenção das apostas.</li>
+          <li>Mensagens de motivação e novas oportunidades.</li>
+          <li>Orientação educativa sobre organização financeira.</li>
+        </ul>
+        <p>As palestras estão previstas para sábados e domingos, das 19h30 às 20h30. Consulte os canais oficiais para confirmar as actividades.</p>
+        <a class="botao" href="https://www.youtube.com/@Novo-Comeco-m6u" target="_blank" rel="noopener noreferrer">Visitar o YouTube</a>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section class="faixa" id="horarios">
+  <div class="titulo">
+    <h2>Horários de atendimento</h2>
+    <p>Consulte os horários habituais do projecto.</p>
+  </div>
+  <div class="temas">
+    <article class="tema">
+      <div class="tema-conteudo" style="padding-top:20px">
+        <h3>Atendimento</h3>
+        <p>Segunda a sexta-feira</p>
+        <p><strong>10h00 às 20h30</strong></p>
+      </div>
+    </article>
+    <article class="tema">
+      <div class="tema-conteudo" style="padding-top:20px">
+        <h3>Palestras</h3>
+        <p>Sábados e domingos</p>
+        <p><strong>19h30 às 20h30</strong></p>
+      </div>
+    </article>
+  </div>
+  <p class="nota" style="text-align:center">As actividades podem depender de confirmação prévia através dos canais oficiais do projecto.</p>
+</section>
+
+<section class="apoio" id="apoio">
+  <div class="apoio-conteudo">
+    <h2>Não precisa de enfrentar tudo sozinho.</h2>
+    <p>Se as apostas estão a afectar a sua vida ou a sua família, dê o primeiro passo. Aceda ao nosso canal para acompanhar as informações e actividades do Novo Começo.</p>
+    <a class="botao" href="https://whatsapp.com/channel/0029VbE4e434Y9lmZIuOL0N" target="_blank" rel="noopener noreferrer">Aceder ao WhatsApp</a>
+    <p class="nota">O canal é destinado à informação e sensibilização. Não substitui acompanhamento psicológico, médico ou aconselhamento financeiro profissional.</p>
+  </div>
+</section>
+
+<section>
+  <div class="titulo">
+    <h2>Junte-se ao Novo Começo</h2>
+    <p>Partilhe informação útil e ajude a promover uma vida com mais consciência, esperança e oportunidades.</p>
+    <a class="botao" href="https://whatsapp.com/channel/0029VbE4e434Y9lmZIuOL0N" target="_blank" rel="noopener noreferrer">Canal WhatsApp</a>
+    <a class="botao" href="https://www.youtube.com/@Novo-Comeco-m6u" target="_blank" rel="noopener noreferrer">Canal YouTube</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <span class="logo">NOVO COMEÇO</span>
+  <p>Recuperar vidas. Reconstruir futuros.</p>
+  <p>Nampula, Moçambique</p>
+  <div class="rodape-links">
+    <a href="#temas">Temas</a>
+    <a href="#horarios">Horários</a>
+    <a href="#apoio">Apoio</a>
+  </div>
+  <p>© <span id="ano"></span> Novo Começo. Todos os direitos reservados.</p>
+</footer>
+
+<button class="chat-abrir" id="chatAbrir" type="button" aria-controls="chatPainel" aria-expanded="false">💬 Atendimento automático</button>
+
+<div class="chat-painel" id="chatPainel" role="dialog" aria-label="Atendimento automático Novo Começo">
+  <div class="chat-topo">
+    <div>
+      <strong>Novo Começo</strong>
+      <small>Atendimento automático • gratuito</small>
     </div>
+    <button class="chat-fechar" id="chatFechar" type="button" aria-label="Fechar atendimento">×</button>
+  </div>
+  <div class="chat-corpo" id="chatCorpo" aria-live="polite"></div>
+  <div class="chat-rodape">
+    <p>Este atendimento utiliza opções e respostas predefinidas. Para mais informações, visite o nosso canal oficial.</p>
+    <a class="chat-youtube" href="https://www.youtube.com/@Novo-Comeco-m6u" target="_blank" rel="noopener noreferrer">📺 Ir para o YouTube</a>
+  </div>
+</div>
 
-    <p>© <span id="ano"></span> Novo Começo. Todos os direitos reservados.</p>
-  </footer>
+<script>
+document.getElementById("ano").textContent = new Date().getFullYear();
 
-  <script>
-    document.getElementById("ano").textContent =
-      new Date().getFullYear();
-
-    // Mantém apenas um tema aberto de cada vez.
-    document.querySelectorAll(".tema").forEach(function(tema) {
-      tema.addEventListener("toggle", function() {
-        if (tema.open) {
-          document.querySelectorAll(".tema").forEach(function(outro) {
-            if (outro !== tema) {
-              outro.open = false;
-            }
-          });
-        }
+/* Mantém apenas um tema informativo aberto de cada vez. */
+document.querySelectorAll("#temas .tema").forEach(function(tema) {
+  tema.addEventListener("toggle", function() {
+    if (tema.open) {
+      document.querySelectorAll("#temas .tema").forEach(function(outro) {
+        if (outro !== tema) outro.open = false;
       });
-    });
-  </script>
+    }
+  });
+});
 
+/* Atendimento automático com respostas predefinidas. */
+(function() {
+  const abrir = document.getElementById("chatAbrir");
+  const fechar = document.getElementById("chatFechar");
+  const painel = document.getElementById("chatPainel");
+  const corpo = document.getElementById("chatCorpo");
+
+  const respostas = [
+    ["🌱 Conhecer o Novo Começo", "O Novo Começo é um projecto social de educação e sensibilização sobre os riscos das apostas. O nosso lema é: Recuperar vidas. Reconstruir futuros."],
+    ["🎯 Compreender as apostas", "As apostas envolvem arriscar dinheiro num resultado incerto. Não existe garantia de ganhar e as apostas não são uma fonte segura de rendimento."],
+    ["🛡️ Prevenção das apostas", "Proteja o dinheiro destinado às necessidades essenciais, não peça empréstimos para apostar e evite tentar recuperar perdas com novas apostas."],
+    ["🔎 Sinais de alerta", "Gastar mais do que planeou, esconder apostas, tentar recuperar perdas ou sentir dificuldade em parar podem ser sinais de alerta. Se isso afectar a sua vida, procure apoio."],
+    ["💔 Consequências das apostas", "As apostas problemáticas podem contribuir para dívidas, conflitos familiares, dificuldades no trabalho ou nos estudos e sofrimento emocional."],
+    ["🤝 Apoio para pessoas e famílias", "Converse com alguém de confiança e procure um profissional de saúde se a situação afectar o seu bem-estar. Escute sem humilhar nem julgar."],
+    ["💰 Orientação financeira", "Registe rendimentos, despesas e dívidas. Priorize alimentação, habitação, transporte e outras necessidades essenciais. Evite contrair dívidas para apostar. Esta é informação educativa geral."],
+    ["📚 Actividades e palestras", "As palestras estão previstas para sábados e domingos, das 19h30 às 20h30. Consulte os canais oficiais para confirmar as actividades."]
+  ];
+
+  function mostrarMenu() {
+    corpo.replaceChildren();
+
+    const saudacao = document.createElement("div");
+    saudacao.className = "chat-resposta";
+    saudacao.textContent = "Olá! Seja bem-vindo(a) ao Novo Começo. 🌱 Escolha um tema para receber informação:";
+
+    const lista = document.createElement("div");
+    lista.className = "chat-opcoes";
+
+    respostas.forEach(function(item, indice) {
+      const botao = document.createElement("button");
+      botao.type = "button";
+      botao.className = "chat-opcao";
+      botao.textContent = item[0];
+      botao.addEventListener("click", function() {
+        mostrarResposta(indice);
+      });
+      lista.appendChild(botao);
+    });
+
+    saudacao.appendChild(lista);
+    corpo.appendChild(saudacao);
+  }
+
+  function mostrarResposta(indice) {
+    corpo.replaceChildren();
+
+    const resposta = document.createElement("div");
+    resposta.className = "chat-resposta";
+
+    const titulo = document.createElement("strong");
+    titulo.textContent = respostas[indice][0];
+
+    const texto = document.createElement("p");
+    texto.style.marginTop = "8px";
+    texto.textContent = respostas[indice][1];
+
+    resposta.append(titulo, texto);
+
+    const link = document.createElement("a");
+    link.className = "chat-youtube";
+    link.href = "https://www.youtube.com/@Novo-Comeco-m6u";
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = "📺 Saber mais no YouTube";
+    resposta.appendChild(link);
+
+    const voltar = document.createElement("button");
+    voltar.type = "button";
+    voltar.className = "chat-opcao";
+    voltar.textContent = "↩ Escolher outro tema";
+    voltar.addEventListener("click", mostrarMenu);
+    resposta.appendChild(voltar);
+
+    corpo.appendChild(resposta);
+    corpo.scrollTop = 0;
+  }
+
+  abrir.addEventListener("click", function() {
+    painel.classList.add("aberto");
+    abrir.setAttribute("aria-expanded", "true");
+    abrir.style.display = "none";
+    fechar.focus();
+  });
+
+  fechar.addEventListener("click", function() {
+    painel.classList.remove("aberto");
+    abrir.setAttribute("aria-expanded", "false");
+    abrir.style.display = "block";
+    abrir.focus();
+  });
+
+  mostrarMenu();
+})();
+</script>
 </body>
 </html>
