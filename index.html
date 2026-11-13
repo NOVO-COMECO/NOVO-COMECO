@@ -295,14 +295,14 @@ footer p {font-size:14px;margin:5px 0}
   <div class="chat-topo">
     <div>
       <strong>Novo Começo</strong>
-      <small>Atendimento automático • gratuito</small>
+      <small>Informação e orientação • gratuito</small>
     </div>
     <button class="chat-fechar" id="chatFechar" type="button" aria-label="Fechar atendimento">×</button>
   </div>
   <div class="chat-corpo" id="chatCorpo" aria-live="polite"></div>
   <div class="chat-rodape">
-    <p>Este atendimento utiliza opções e respostas predefinidas. Para mais informações, visite o nosso canal oficial.</p>
-    <a class="chat-youtube" href="https://www.youtube.com/@Novo-Comeco-m6u" target="_blank" rel="noopener noreferrer">📺 Ir para o YouTube</a>
+    <p>Este atendimento apresenta informações gerais sobre o projecto. Para receber orientação, visite o nosso canal oficial no YouTube.</p>
+    <a class="chat-youtube" href="https://www.youtube.com/@Novo-Comeco-m6u" target="_blank" rel="noopener noreferrer">📺 Visitar o canal oficial</a>
   </div>
 </div>
 
@@ -328,14 +328,34 @@ document.querySelectorAll("#temas .tema").forEach(function(tema) {
   const corpo = document.getElementById("chatCorpo");
 
   const respostas = [
-    ["🌱 Conhecer o Novo Começo", "O Novo Começo é um projecto social de educação e sensibilização sobre os riscos das apostas. O nosso lema é: Recuperar vidas. Reconstruir futuros."],
-    ["🎯 Compreender as apostas", "As apostas envolvem arriscar dinheiro num resultado incerto. Não existe garantia de ganhar e as apostas não são uma fonte segura de rendimento."],
-    ["🛡️ Prevenção das apostas", "Proteja o dinheiro destinado às necessidades essenciais, não peça empréstimos para apostar e evite tentar recuperar perdas com novas apostas."],
-    ["🔎 Sinais de alerta", "Gastar mais do que planeou, esconder apostas, tentar recuperar perdas ou sentir dificuldade em parar podem ser sinais de alerta. Se isso afectar a sua vida, procure apoio."],
-    ["💔 Consequências das apostas", "As apostas problemáticas podem contribuir para dívidas, conflitos familiares, dificuldades no trabalho ou nos estudos e sofrimento emocional."],
-    ["🤝 Apoio para pessoas e famílias", "Converse com alguém de confiança e procure um profissional de saúde se a situação afectar o seu bem-estar. Escute sem humilhar nem julgar."],
-    ["💰 Orientação financeira", "Registe rendimentos, despesas e dívidas. Priorize alimentação, habitação, transporte e outras necessidades essenciais. Evite contrair dívidas para apostar. Esta é informação educativa geral."],
-    ["📚 Actividades e palestras", "As palestras estão previstas para sábados e domingos, das 19h30 às 20h30. Consulte os canais oficiais para confirmar as actividades."]
+    [
+      "🌱 Sobre o NOVO COMEÇO",
+      "O NOVO COMEÇO é um projecto social dedicado à educação, à prevenção dos problemas relacionados com as apostas e à construção de novas oportunidades. A nossa missão é promover informação, escolhas conscientes e esperança."
+    ],
+    [
+      "🤝 Como receber atendimento",
+      "O NOVO COMEÇO disponibiliza informações e orientação através dos seus canais oficiais. Para aceder ao nosso atendimento, visite o canal oficial no YouTube. Lá encontrará o acesso ao grupo de WhatsApp, onde serão realizadas as interacções e o acompanhamento dos participantes."
+    ],
+    [
+      "🕒 Horários de atendimento",
+      "O horário habitual de atendimento do projecto é de segunda a sexta-feira, das 10h00 às 20h30. Para informações e orientações, visite o nosso canal oficial no YouTube."
+    ],
+    [
+      "📚 Palestras e actividades",
+      "Promovemos palestras educativas, sensibilização sobre os riscos das apostas e partilha de informação útil. As palestras estão previstas para sábados e domingos, das 19h30 às 20h30. Consulte o nosso canal oficial para acompanhar as actividades e confirmar os horários."
+    ],
+    [
+      "🛡️ Prevenção e consciencialização",
+      "A prevenção começa com informação. Evite utilizar dinheiro destinado às necessidades essenciais para apostar, não contraia dívidas para jogar e procure apoio se sentir dificuldade em parar. Conhecer os riscos é um passo importante para proteger a sua vida e a sua família."
+    ],
+    [
+      "💰 Educação e orientação financeira",
+      "A organização financeira começa por conhecer os seus rendimentos, despesas e dívidas. Dê prioridade às necessidades essenciais, evite novas dívidas para apostar e estabeleça objectivos realistas. Estas são orientações educativas gerais."
+    ],
+    [
+      "❤️ Como apoiar o projecto",
+      "Pode apoiar o NOVO COMEÇO acompanhando o nosso canal no YouTube, partilhando as nossas mensagens educativas e divulgando as actividades de sensibilização. Cada partilha pode ajudar a levar informação a mais pessoas."
+    ]
   ];
 
   function mostrarMenu() {
@@ -343,7 +363,7 @@ document.querySelectorAll("#temas .tema").forEach(function(tema) {
 
     const saudacao = document.createElement("div");
     saudacao.className = "chat-resposta";
-    saudacao.textContent = "Olá! Seja bem-vindo(a) ao Novo Começo. 🌱 Escolha um tema para receber informação:";
+    saudacao.textContent = "Seja bem-vindo(a) ao NOVO COMEÇO! 🌱 Estamos aqui para promover a educação, a prevenção dos problemas relacionados com as apostas e a construção de novas oportunidades. Seleccione uma das opções abaixo para conhecer melhor o nosso projecto e os nossos serviços.";
 
     const lista = document.createElement("div");
     lista.className = "chat-opcoes";
@@ -361,6 +381,7 @@ document.querySelectorAll("#temas .tema").forEach(function(tema) {
 
     saudacao.appendChild(lista);
     corpo.appendChild(saudacao);
+    corpo.scrollTop = 0;
   }
 
   function mostrarResposta(indice) {
@@ -383,13 +404,14 @@ document.querySelectorAll("#temas .tema").forEach(function(tema) {
     link.href = "https://www.youtube.com/@Novo-Comeco-m6u";
     link.target = "_blank";
     link.rel = "noopener noreferrer";
-    link.textContent = "📺 Saber mais no YouTube";
+    link.textContent = "📺 Visitar o canal oficial no YouTube";
     resposta.appendChild(link);
 
     const voltar = document.createElement("button");
     voltar.type = "button";
     voltar.className = "chat-opcao";
-    voltar.textContent = "↩ Escolher outro tema";
+    voltar.style.marginTop = "10px";
+    voltar.textContent = "↩ Voltar às opções";
     voltar.addEventListener("click", mostrarMenu);
     resposta.appendChild(voltar);
 
