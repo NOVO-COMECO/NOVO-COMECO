@@ -12,6 +12,9 @@
 <meta property="og:type" content="website">
 <title>Novo Começo | Projecto de Educação e Prevenção</title>
 
+<!-- Ícones Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 <style>
 :root {
   --verde:#064e3b;
@@ -102,6 +105,29 @@ nav a:hover {color:var(--dourado)}
 .botao-contorno:hover {
   background:var(--dourado);
   color:#183426;
+}
+
+/* Botão compacto do YouTube */
+.youtube-btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background:var(--dourado);
+  color:var(--verde);
+  padding:9px 15px;
+  border-radius:8px;
+  font-size:14px;
+  font-weight:600;
+  margin:8px 0;
+  transition:transform .2s,background .2s;
+}
+.youtube-btn i {
+  font-size:18px;
+}
+.youtube-btn:hover {
+  background:#e5bd59;
+  transform:translateY(-2px);
 }
 
 /* Apresentação */
@@ -403,6 +429,7 @@ footer p {
   font-weight:bold;
   font-size:13px;
 }
+.chat-youtube i {margin-right:6px}
 .chat-rodape {
   padding:12px 15px;
   background:white;
@@ -469,7 +496,6 @@ footer p {
     <span class="etiqueta">Educação • Prevenção • Esperança</span>
     <h1>Um novo começo pode mudar uma vida.</h1>
     <p>Trabalhamos para sensibilizar sobre os riscos das apostas, promover escolhas conscientes e ajudar pessoas e famílias a construir um futuro com mais esperança e oportunidades.</p>
-    <a class="botao" href="https://www.youtube.com/@Novo-Comeco-m6u" target="_blank" rel="noopener noreferrer">Acompanhar o projecto</a>
     <a class="botao botao-contorno" href="#apoio">Conhecer o apoio</a>
   </div>
 </section>
@@ -565,7 +591,10 @@ footer p {
           <li>Incentive a procura de apoio de forma respeitosa.</li>
         </ul>
         <p>Familiares e amigos podem oferecer apoio e encorajar a procura de ajuda.</p>
-        <a class="botao" href="https://www.youtube.com/@Novo-Comeco-m6u" target="_blank" rel="noopener noreferrer">Conhecer o nosso canal</a>
+        <a class="youtube-btn" href="https://www.youtube.com/@Novo-Comeco-m6u" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+          Visite o nosso canal oficial
+        </a>
       </div>
     </details>
 
@@ -631,15 +660,10 @@ footer p {
   <div class="apoio-conteudo">
     <h2>Não precisa de enfrentar tudo sozinho.</h2>
     <p>Se as apostas estão a afectar a sua vida ou a sua família, dê o primeiro passo. Acompanhe o Novo Começo e conheça as nossas informações, actividades e formas de participação.</p>
-    <a class="botao" href="https://www.youtube.com/@Novo-Comeco-m6u" target="_blank" rel="noopener noreferrer">Visitar o nosso YouTube</a>
-  </div>
-</section>
-
-<section>
-  <div class="titulo">
-    <h2>Junte-se ao Novo Começo</h2>
-    <p>Partilhe informação útil e ajude a promover uma vida com mais consciência, esperança e oportunidades.</p>
-    <a class="botao" href="https://www.youtube.com/@Novo-Comeco-m6u" target="_blank" rel="noopener noreferrer">📺 Canal YouTube</a>
+    <a class="youtube-btn" href="https://www.youtube.com/@Novo-Comeco-m6u" target="_blank" rel="noopener noreferrer">
+      <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+      Visite o nosso canal oficial
+    </a>
   </div>
 </section>
 
@@ -683,7 +707,8 @@ footer p {
     <a class="chat-youtube"
       href="https://www.youtube.com/@Novo-Comeco-m6u"
       target="_blank" rel="noopener noreferrer">
-      📺 Visitar o canal oficial
+      <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+      Visitar o canal oficial
     </a>
   </div>
 </div>
@@ -795,7 +820,7 @@ document.querySelectorAll("#temas .tema").forEach(function(tema) {
     link.href = "https://www.youtube.com/@Novo-Comeco-m6u";
     link.target = "_blank";
     link.rel = "noopener noreferrer";
-    link.textContent = "📺 Visitar o canal oficial";
+    link.innerHTML = '<i class="fa-brands fa-youtube" aria-hidden="true"></i> Visitar o canal oficial';
 
     resposta.appendChild(link);
 
