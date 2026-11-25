@@ -26,7 +26,7 @@
   --texto:#26352e;
   --cinza:#617067;
   --borda:#dce7df;
-  --sombra:0 8px 25px rgba(0,0,0,.07);
+  --sombra:0 10px 30px rgba(0,0,0,.07);
 }
 * {
   box-sizing:border-box;
@@ -41,32 +41,33 @@ body {
   line-height:1.7;
 }
 a {text-decoration:none}
-button {font:inherit}
-a:focus-visible,button:focus-visible,summary:focus-visible {
+button,input,textarea {font:inherit}
+a:focus-visible,button:focus-visible,summary:focus-visible,
+input:focus-visible,textarea:focus-visible {
   outline:3px solid var(--dourado);
-  outline-offset:4px;
+  outline-offset:3px;
 }
 
 /* Cabeçalho */
 header {
   background:var(--verde);
   color:white;
-  padding:14px 6%;
+  padding:15px 6%;
   display:flex;
   align-items:center;
   justify-content:space-between;
   flex-wrap:wrap;
-  gap:12px;
+  gap:14px;
   position:sticky;
   top:0;
   z-index:500;
-  box-shadow:0 3px 15px #0002;
+  box-shadow:0 3px 18px #0002;
 }
 .logo {
   font-size:23px;
   font-weight:800;
   color:var(--dourado);
-  letter-spacing:.5px;
+  letter-spacing:.7px;
 }
 nav {
   display:flex;
@@ -105,8 +106,6 @@ nav a:hover {color:var(--dourado)}
   background:var(--dourado);
   color:#183426;
 }
-
-/* Botão compacto do YouTube */
 .youtube-btn {
   display:inline-flex;
   align-items:center;
@@ -114,10 +113,10 @@ nav a:hover {color:var(--dourado)}
   gap:8px;
   background:var(--dourado);
   color:var(--verde);
-  padding:9px 15px;
+  padding:10px 16px;
   border-radius:8px;
   font-size:14px;
-  font-weight:600;
+  font-weight:700;
   margin:8px 0;
   transition:transform .2s,background .2s;
 }
@@ -133,7 +132,7 @@ nav a:hover {color:var(--dourado)}
     radial-gradient(circle at 85% 15%,#ffffff12,transparent 30%),
     linear-gradient(135deg,#043d2f,#087653);
   color:white;
-  padding:90px 7%;
+  padding:95px 7%;
   text-align:center;
 }
 .hero-conteudo {
@@ -163,13 +162,13 @@ nav a:hover {color:var(--dourado)}
 
 /* Secções */
 section {
-  padding:65px 7%;
-  scroll-margin-top:85px;
+  padding:70px 7%;
+  scroll-margin-top:90px;
 }
 .titulo {
   text-align:center;
   max-width:760px;
-  margin:0 auto 35px;
+  margin:0 auto 38px;
 }
 .titulo h2 {
   color:var(--verde);
@@ -178,30 +177,12 @@ section {
   margin-bottom:12px;
 }
 .titulo p {color:var(--cinza)}
-.apoio {
-  background:var(--verde-suave);
-  text-align:center;
-}
-.apoio-conteudo {
-  max-width:780px;
-  margin:auto;
-}
-.apoio h2 {
-  color:var(--verde);
-  font-size:clamp(28px,4vw,36px);
-  line-height:1.25;
-  margin-bottom:15px;
-}
-.apoio p {
-  font-size:17px;
-  margin-bottom:15px;
-}
 
-/* Cartões dos temas */
+/* Temas */
 .temas {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(245px,1fr));
-  gap:18px;
+  gap:19px;
   max-width:1100px;
   margin:auto;
   align-items:start;
@@ -265,12 +246,136 @@ section {
   border-radius:5px;
 }
 
+/* Apoio */
+.apoio {
+  background:var(--verde-suave);
+  text-align:center;
+}
+.apoio-conteudo {
+  max-width:780px;
+  margin:auto;
+}
+.apoio h2 {
+  color:var(--verde);
+  font-size:clamp(28px,4vw,36px);
+  line-height:1.25;
+  margin-bottom:15px;
+}
+.apoio p {
+  font-size:17px;
+  margin-bottom:15px;
+}
+
+/* Contacto */
+.contacto {
+  background:#fff;
+}
+.contacto-caixa {
+  max-width:760px;
+  margin:auto;
+  background:white;
+  padding:32px;
+  border:1px solid var(--borda);
+  border-radius:16px;
+  box-shadow:var(--sombra);
+}
+.contacto-intro {
+  text-align:center;
+  margin-bottom:25px;
+}
+.contacto-intro .icone-contacto {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:58px;
+  height:58px;
+  margin:0 auto 15px;
+  border-radius:50%;
+  background:var(--verde-suave);
+  color:var(--verde);
+  font-size:25px;
+}
+.contacto-intro h3 {
+  color:var(--verde);
+  font-size:23px;
+  margin-bottom:7px;
+}
+.contacto-intro p {
+  color:var(--cinza);
+  font-size:14px;
+}
+.campo {
+  margin-bottom:18px;
+}
+.campo label {
+  display:block;
+  color:var(--verde);
+  font-size:14px;
+  font-weight:bold;
+  margin-bottom:7px;
+}
+.campo input,
+.campo textarea {
+  width:100%;
+  padding:13px 14px;
+  border:1px solid #cbd9cf;
+  border-radius:8px;
+  background:#fbfdfb;
+  color:var(--texto);
+  font-size:15px;
+  transition:border .2s,box-shadow .2s;
+}
+.campo input:focus,
+.campo textarea:focus {
+  outline:none;
+  border-color:var(--verde-claro);
+  box-shadow:0 0 0 3px #08765318;
+}
+.campo textarea {
+  min-height:145px;
+  resize:vertical;
+}
+.campo input::placeholder,
+.campo textarea::placeholder {
+  color:#89968e;
+}
+.botao-enviar {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  width:100%;
+  padding:14px 20px;
+  border:0;
+  border-radius:8px;
+  background:var(--verde);
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  transition:background .2s,transform .2s;
+}
+.botao-enviar:hover {
+  background:var(--verde-claro);
+  transform:translateY(-2px);
+}
+.contacto-nota {
+  margin-top:15px;
+  text-align:center;
+  color:var(--cinza);
+  font-size:12px;
+  line-height:1.5;
+}
+.contacto-nota i {
+  color:var(--verde-claro);
+  margin-right:5px;
+}
+
 /* Rodapé */
 footer {
   background:var(--verde-escuro);
   color:white;
   text-align:center;
-  padding:35px 6%;
+  padding:38px 6%;
 }
 footer .logo {
   display:block;
@@ -417,12 +522,14 @@ footer p {
   }
   nav {
     justify-content:center;
-    gap:10px 16px;
+    gap:10px 14px;
   }
+  nav a {font-size:13px}
   .hero {padding:65px 6%}
   .hero p {font-size:16px}
-  section {padding:48px 6%}
+  section {padding:50px 6%}
   .temas {grid-template-columns:1fr}
+  .contacto-caixa {padding:23px 17px}
   .chat-abrir {
     right:12px;
     bottom:12px;
@@ -452,6 +559,7 @@ footer p {
     <a href="#inicio">Início</a>
     <a href="#temas">Temas</a>
     <a href="#apoio">Apoio</a>
+    <a href="#contacto">Contacto</a>
   </nav>
 </header>
 
@@ -463,6 +571,7 @@ footer p {
     <h1>Um novo começo pode mudar uma vida.</h1>
     <p>Trabalhamos para sensibilizar sobre os riscos das apostas, promover escolhas conscientes e ajudar pessoas e famílias a construir um futuro com mais esperança e oportunidades.</p>
     <a class="botao botao-contorno" href="#apoio">Conhecer o apoio</a>
+    <a class="botao" href="#contacto">Fale connosco</a>
   </div>
 </section>
 
@@ -605,6 +714,94 @@ footer p {
       <i class="fa-brands fa-youtube" aria-hidden="true"></i>
       Visite o nosso canal oficial
     </a>
+    <p>Também pode enviar uma mensagem directamente através do nosso formulário de contacto.</p>
+    <a class="botao" href="#contacto">Enviar uma mensagem</a>
+  </div>
+</section>
+
+<!-- Formulário de contacto -->
+<section class="contacto" id="contacto">
+  <div class="titulo">
+    <h2>Fale connosco</h2>
+    <p>Tem uma dúvida, uma sugestão ou deseja saber mais sobre o Novo Começo? Envie-nos uma mensagem. Teremos todo o gosto em receber o seu contacto.</p>
+  </div>
+
+  <div class="contacto-caixa">
+    <div class="contacto-intro">
+      <div class="icone-contacto">
+        <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+      </div>
+      <h3>Estamos disponíveis para ouvir</h3>
+      <p>Preencha os campos abaixo. A sua mensagem será encaminhada para a equipa do Novo Começo.</p>
+    </div>
+
+    <form action="https://formsubmit.app/f/5mq2zcexj8" method="POST">
+      <div class="campo">
+        <label for="fs-name">Nome completo</label>
+        <input
+          id="fs-name"
+          type="text"
+          name="name"
+          placeholder="Escreva o seu nome"
+          autocomplete="name"
+          required>
+      </div>
+
+      <div class="campo">
+        <label for="fs-email">Endereço de e-mail</label>
+        <input
+          id="fs-email"
+          type="email"
+          name="email"
+          placeholder="exemplo@email.com"
+          autocomplete="email"
+          required>
+      </div>
+
+      <div class="campo">
+        <label for="fs-subject">Assunto</label>
+        <input
+          id="fs-subject"
+          type="text"
+          name="subject"
+          placeholder="Qual é o assunto da sua mensagem?"
+          required>
+      </div>
+
+      <div class="campo">
+        <label for="fs-message">A sua mensagem</label>
+        <textarea
+          id="fs-message"
+          name="message"
+          rows="6"
+          placeholder="Escreva aqui a sua mensagem..."
+          required></textarea>
+      </div>
+
+      <!-- Campo de protecção contra mensagens automáticas -->
+      <input
+        type="text"
+        name="_gotcha"
+        tabindex="-1"
+        autocomplete="off"
+        aria-hidden="true"
+        style="display:none">
+
+      <input
+        type="hidden"
+        name="_subject"
+        value="Nova mensagem recebida - Novo Começo">
+
+      <button class="botao-enviar" type="submit">
+        <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+        Enviar mensagem
+      </button>
+
+      <p class="contacto-nota">
+        <i class="fa-solid fa-lock" aria-hidden="true"></i>
+        Utilize este formulário apenas para mensagens relacionadas com o projecto. Evite incluir palavras-passe ou informações pessoais sensíveis.
+      </p>
+    </form>
   </div>
 </section>
 
@@ -617,6 +814,7 @@ footer p {
   <div class="rodape-links">
     <a href="#temas">Temas</a>
     <a href="#apoio">Apoio</a>
+    <a href="#contacto">Contacto</a>
   </div>
   <p>© <span id="ano"></span> Novo Começo. Todos os direitos reservados.</p>
 </footer>
@@ -643,12 +841,16 @@ footer p {
   <div class="chat-corpo" id="chatCorpo" aria-live="polite"></div>
 
   <div class="chat-rodape">
-    <p>Para conhecer o projecto e aceder ao grupo de atendimento, visite o nosso canal oficial.</p>
+    <p>Para contactar directamente o projecto, utilize o formulário disponível no nosso site.</p>
     <a class="chat-youtube"
       href="https://www.youtube.com/@Novo-Comeco-m6u"
       target="_blank" rel="noopener noreferrer">
       <i class="fa-brands fa-youtube" aria-hidden="true"></i>
       Visitar o canal oficial
+    </a>
+    <a class="chat-youtube" href="#contacto" id="chatContacto">
+      <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+      Enviar uma mensagem
     </a>
   </div>
 </div>
@@ -673,6 +875,7 @@ document.querySelectorAll("#temas .tema").forEach(function(tema) {
   const fechar = document.getElementById("chatFechar");
   const painel = document.getElementById("chatPainel");
   const corpo = document.getElementById("chatCorpo");
+  const contacto = document.getElementById("chatContacto");
 
   const respostas = [
     [
@@ -681,11 +884,11 @@ document.querySelectorAll("#temas .tema").forEach(function(tema) {
     ],
     [
       "🤝 Como funciona o atendimento?",
-      "O nosso atendimento e acompanhamento dos participantes serão realizados através do grupo de WhatsApp, cujo acesso será disponibilizado no canal oficial do Novo Começo no YouTube. Visite o canal para encontrar o acesso e conhecer as nossas orientações."
+      "O Novo Começo disponibiliza informação educativa e recebe mensagens através do formulário de contacto no nosso site. Para enviar uma dúvida ou pedido de informação, escolha a opção de contacto abaixo."
     ],
     [
       "📝 Como participar no projecto?",
-      "Para acompanhar o projecto, conhecer as actividades e saber como participar, visite o nosso canal oficial no YouTube. Lá serão partilhadas as informações e os passos para participar."
+      "Para acompanhar o projecto, conhecer as actividades e saber como participar, visite o nosso canal oficial no YouTube ou envie-nos uma mensagem através do formulário de contacto."
     ],
     [
       "🕒 Quais são os horários?",
@@ -764,6 +967,14 @@ document.querySelectorAll("#temas .tema").forEach(function(tema) {
 
     resposta.appendChild(link);
 
+    const linkContacto = document.createElement("a");
+    linkContacto.className = "chat-youtube";
+    linkContacto.href = "#contacto";
+    linkContacto.textContent = "✉ Enviar uma mensagem";
+    linkContacto.addEventListener("click", fecharPainel);
+
+    resposta.appendChild(linkContacto);
+
     const voltar = document.createElement("button");
     voltar.type = "button";
     voltar.className = "chat-opcao";
@@ -792,6 +1003,7 @@ document.querySelectorAll("#temas .tema").forEach(function(tema) {
 
   abrir.addEventListener("click", abrirPainel);
   fechar.addEventListener("click", fecharPainel);
+  contacto.addEventListener("click", fecharPainel);
 
   document.addEventListener("keydown", function(event) {
     if (event.key === "Escape" && painel.classList.contains("aberto")) {
