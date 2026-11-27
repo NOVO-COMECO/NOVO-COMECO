@@ -34,6 +34,7 @@ body {
   line-height:1.6;
 }
 a {text-decoration:none;color:inherit}
+
 header {
   background:var(--branco);
   box-shadow:0 3px 18px rgba(0,0,0,.06);
@@ -76,7 +77,9 @@ nav a {
   color:var(--verde);
 }
 nav a:hover {color:var(--dourado)}
+
 main {overflow:hidden}
+
 .hero {
   background:linear-gradient(135deg,var(--verde-escuro),var(--verde-claro));
   color:white;
@@ -128,8 +131,10 @@ main {overflow:hidden}
   transition:.2s;
 }
 .botao:hover {transform:translateY(-2px)}
-.botao-dourado {background:var(--dourado);color:var(--verde-escuro)}
-.botao-transparente {border:1px solid #ffffff80;color:white}
+.botao-transparente {
+  border:1px solid #ffffff80;
+  color:white;
+}
 .hero-imagem {
   min-height:270px;
   border:1px solid #ffffff30;
@@ -154,12 +159,16 @@ main {overflow:hidden}
 }
 .hero-imagem h2 {font-size:20px}
 .hero-imagem p {font-size:13px;margin-top:7px}
+
 .seccao {
   max-width:1100px;
   margin:auto;
   padding:65px 5%;
 }
-.seccao-titulo {text-align:center;margin-bottom:35px}
+.seccao-titulo {
+  text-align:center;
+  margin-bottom:35px;
+}
 .seccao-titulo span {
   color:var(--verde-claro);
   text-transform:uppercase;
@@ -178,10 +187,11 @@ main {overflow:hidden}
   color:#66736b;
   font-size:14px;
 }
+
 .acessos {
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:17px;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
 }
 .cartao {
   background:white;
@@ -190,6 +200,7 @@ main {overflow:hidden}
   border:1px solid #e6eee8;
   box-shadow:0 5px 20px #123b2010;
   transition:.2s;
+  display:block;
 }
 .cartao:hover {
   transform:translateY(-4px);
@@ -206,9 +217,22 @@ main {overflow:hidden}
   font-size:21px;
   margin-bottom:17px;
 }
-.cartao h3 {font-size:15px;color:var(--verde);margin-bottom:8px}
-.cartao p {font-size:12px;color:#68766e;margin-bottom:17px}
-.cartao .seta {color:var(--verde-claro);font-size:12px;font-weight:700}
+.cartao h3 {
+  font-size:15px;
+  color:var(--verde);
+  margin-bottom:8px;
+}
+.cartao p {
+  font-size:12px;
+  color:#68766e;
+  margin-bottom:17px;
+}
+.cartao .seta {
+  color:var(--verde-claro);
+  font-size:12px;
+  font-weight:700;
+}
+
 .destaque {
   background:var(--suave);
   border-radius:20px;
@@ -218,9 +242,22 @@ main {overflow:hidden}
   justify-content:space-between;
   gap:25px;
 }
-.destaque h2 {color:var(--verde);font-size:24px;margin-bottom:8px}
-.destaque p {font-size:13px;color:#5f7065;max-width:600px}
-.destaque .botao {background:var(--verde);color:white;white-space:nowrap}
+.destaque h2 {
+  color:var(--verde);
+  font-size:24px;
+  margin-bottom:8px;
+}
+.destaque p {
+  font-size:13px;
+  color:#5f7065;
+  max-width:600px;
+}
+.destaque .botao {
+  background:var(--verde);
+  color:white;
+  white-space:nowrap;
+}
+
 .youtube {
   background:var(--verde-escuro);
   color:white;
@@ -228,8 +265,16 @@ main {overflow:hidden}
   text-align:center;
 }
 .youtube h2 {font-size:23px;margin-bottom:8px}
-.youtube p {font-size:13px;color:#d5e4da;margin-bottom:20px}
-.youtube .botao {background:#d8ad45;color:var(--verde-escuro)}
+.youtube p {
+  font-size:13px;
+  color:#d5e4da;
+  margin-bottom:20px;
+}
+.youtube .botao {
+  background:var(--dourado);
+  color:var(--verde-escuro);
+}
+
 footer {
   background:#021f18;
   color:#dce8df;
@@ -245,28 +290,41 @@ footer p {font-size:12px;margin:6px 0}
   gap:18px;
   margin:17px 0;
 }
-.rodape-links a {font-size:12px;color:#dce8df}
+.rodape-links a {
+  font-size:12px;
+  color:#dce8df;
+}
+
 @media(max-width:800px) {
   .hero-conteudo {grid-template-columns:1fr}
   .hero-imagem {min-height:210px}
-  .acessos {grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:600px) {
-  .topo {padding:12px 4%;flex-wrap:wrap}
+  .topo {
+    padding:12px 4%;
+    flex-wrap:wrap;
+  }
   .logo {font-size:16px}
   .logo-icone {width:38px;height:38px}
-  nav {width:100%;justify-content:space-between;gap:8px}
+  nav {
+    width:100%;
+    justify-content:space-between;
+    gap:8px;
+  }
   nav a {font-size:11px}
   .hero {padding:52px 6%}
   .hero h1 {font-size:36px}
   .hero p {font-size:14px}
   .hero-imagem {min-height:190px}
   .seccao {padding:48px 5%}
-  .acessos {gap:11px}
-  .cartao {padding:19px 14px}
-  .cartao h3 {font-size:13px}
-  .cartao p {font-size:11px}
-  .destaque {padding:25px 20px;display:block}
+  .acessos {grid-template-columns:1fr}
+  .cartao {padding:21px 18px}
+  .cartao h3 {font-size:14px}
+  .cartao p {font-size:12px}
+  .destaque {
+    padding:25px 20px;
+    display:block;
+  }
   .destaque .botao {margin-top:18px}
 }
 </style>
@@ -277,7 +335,9 @@ footer p {font-size:12px;margin:6px 0}
 <header>
   <div class="topo">
     <a class="logo" href="index.html" target="_blank" rel="noopener">
-      <span class="logo-icone"><i class="fa-solid fa-seedling"></i></span>
+      <span class="logo-icone">
+        <i class="fa-solid fa-seedling"></i>
+      </span>
       <span>NOVO COMEÇO</span>
     </a>
 
@@ -291,11 +351,17 @@ footer p {font-size:12px;margin:6px 0}
 </header>
 
 <main>
+
   <section class="hero">
     <div class="hero-conteudo">
+
       <div>
-        <span class="etiqueta">Educação • Prevenção • Esperança</span>
+        <span class="etiqueta">
+          Educação • Prevenção • Esperança
+        </span>
+
         <h1>Um novo começo pode mudar uma vida.</h1>
+
         <p>
           Trabalhamos para sensibilizar sobre os riscos das apostas,
           promover escolhas conscientes e ajudar pessoas e famílias
@@ -303,90 +369,157 @@ footer p {font-size:12px;margin:6px 0}
         </p>
 
         <div class="botoes">
-          <a class="botao botao-dourado" href="temas.html" target="_blank" rel="noopener">
-            <i class="fa-solid fa-book-open"></i> Conhecer os temas
-          </a>
-          <a class="botao botao-transparente" href="apoio.html" target="_blank" rel="noopener">
-            <i class="fa-solid fa-hand-holding-heart"></i> Procurar apoio
+          <a class="botao botao-transparente"
+             href="apoio.html"
+             target="_blank"
+             rel="noopener">
+            <i class="fa-solid fa-hand-holding-heart"></i>
+            Procurar apoio
           </a>
         </div>
       </div>
 
       <div class="hero-imagem">
         <div>
-          <div class="simbolo"><i class="fa-solid fa-seedling"></i></div>
+          <div class="simbolo">
+            <i class="fa-solid fa-seedling"></i>
+          </div>
           <h2>Recuperar vidas.</h2>
           <p>Reconstruir futuros.</p>
         </div>
       </div>
+
     </div>
   </section>
 
   <section class="seccao">
+
     <div class="seccao-titulo">
       <span>Explore o projecto</span>
       <h2>Como podemos ajudar?</h2>
-      <p>Encontre informação, orientação e caminhos para escolhas mais conscientes.</p>
+      <p>
+        Encontre informação, orientação e caminhos
+        para escolhas mais conscientes.
+      </p>
     </div>
 
     <div class="acessos">
-      <a class="cartao" href="temas.html" target="_blank" rel="noopener">
-        <div class="cartao-icone"><i class="fa-solid fa-book-open"></i></div>
+
+      <a class="cartao"
+         href="temas.html"
+         target="_blank"
+         rel="noopener">
+
+        <div class="cartao-icone">
+          <i class="fa-solid fa-book-open"></i>
+        </div>
+
         <h3>Educação e informação</h3>
-        <p>Conheça os conteúdos educativos sobre as apostas e os seus riscos.</p>
-        <span class="seta">Explorar temas <i class="fa-solid fa-arrow-right"></i></span>
+
+        <p>
+          Conheça os oito temas educativos e compreenda
+          melhor os riscos relacionados com as apostas.
+        </p>
+
+        <span class="seta">
+          Explorar os temas
+          <i class="fa-solid fa-arrow-right"></i>
+        </span>
       </a>
 
-      <a class="cartao" href="temas.html" target="_blank" rel="noopener">
-        <div class="cartao-icone"><i class="fa-solid fa-shield-heart"></i></div>
-        <h3>Prevenção</h3>
-        <p>Aprenda a reconhecer riscos e a adoptar comportamentos responsáveis.</p>
-        <span class="seta">Saber mais <i class="fa-solid fa-arrow-right"></i></span>
-      </a>
+      <a class="cartao"
+         href="apoio.html"
+         target="_blank"
+         rel="noopener">
 
-      <a class="cartao" href="apoio.html" target="_blank" rel="noopener">
-        <div class="cartao-icone"><i class="fa-solid fa-hand-holding-heart"></i></div>
+        <div class="cartao-icone">
+          <i class="fa-solid fa-hand-holding-heart"></i>
+        </div>
+
         <h3>Apoio e orientação</h3>
-        <p>Encontre informação de apoio para pessoas e famílias.</p>
-        <span class="seta">Ver apoio <i class="fa-solid fa-arrow-right"></i></span>
+
+        <p>
+          Encontre orientações para pessoas e famílias
+          que procuram informação e apoio.
+        </p>
+
+        <span class="seta">
+          Ver informações de apoio
+          <i class="fa-solid fa-arrow-right"></i>
+        </span>
       </a>
 
-      <a class="cartao" href="contacto.html" target="_blank" rel="noopener">
-        <div class="cartao-icone"><i class="fa-solid fa-envelope"></i></div>
+      <a class="cartao"
+         href="contacto.html"
+         target="_blank"
+         rel="noopener">
+
+        <div class="cartao-icone">
+          <i class="fa-solid fa-envelope"></i>
+        </div>
+
         <h3>Fale connosco</h3>
-        <p>Envie uma mensagem ou partilhe as suas dúvidas com o projecto.</p>
-        <span class="seta">Entrar em contacto <i class="fa-solid fa-arrow-right"></i></span>
+
+        <p>
+          Tem uma dúvida ou sugestão?
+          Envie uma mensagem à equipa do Novo Começo.
+        </p>
+
+        <span class="seta">
+          Enviar uma mensagem
+          <i class="fa-solid fa-arrow-right"></i>
+        </span>
       </a>
+
     </div>
   </section>
 
   <section class="seccao" style="padding-top:0">
     <div class="destaque">
+
       <div>
         <h2>O conhecimento é o primeiro passo.</h2>
+
         <p>
-          A informação pode ajudar a prevenir problemas relacionados
-          com as apostas e a construir decisões mais conscientes.
-          Explore os oito temas educativos do Novo Começo.
+          A informação pode ajudar a prevenir problemas
+          relacionados com as apostas e a construir
+          decisões mais conscientes.
         </p>
       </div>
-      <a class="botao" href="temas.html" target="_blank" rel="noopener">
-        Ver os 8 temas <i class="fa-solid fa-arrow-right"></i>
+
+      <a class="botao"
+         href="temas.html"
+         target="_blank"
+         rel="noopener">
+        Conhecer o projecto
+        <i class="fa-solid fa-arrow-right"></i>
       </a>
+
     </div>
   </section>
 
   <section class="youtube">
     <h2>Acompanhe o Novo Começo</h2>
-    <p>Veja os nossos conteúdos e acompanhe as actividades através do YouTube.</p>
-    <a class="botao" href="https://www.youtube.com/@Novo-Comeco-m6u" target="_blank" rel="noopener">
-      <i class="fa-brands fa-youtube"></i> Visitar o nosso canal
+
+    <p>
+      Veja os nossos conteúdos e acompanhe
+      as actividades através do YouTube.
+    </p>
+
+    <a class="botao"
+       href="https://www.youtube.com/@Novo-Comeco-m6u"
+       target="_blank"
+       rel="noopener">
+      <i class="fa-brands fa-youtube"></i>
+      Visitar o nosso canal
     </a>
   </section>
+
 </main>
 
 <footer>
   <strong>NOVO COMEÇO</strong>
+
   <p>Recuperar vidas. Reconstruir futuros.</p>
 
   <div class="rodape-links">
@@ -394,7 +527,8 @@ footer p {font-size:12px;margin:6px 0}
     <a href="temas.html" target="_blank" rel="noopener">Temas</a>
     <a href="apoio.html" target="_blank" rel="noopener">Apoio</a>
     <a href="contacto.html" target="_blank" rel="noopener">Contacto</a>
-    <a href="https://www.youtube.com/@Novo-Comeco-m6u" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://www.youtube.com/@Novo-Comeco-m6u"
+       target="_blank" rel="noopener">YouTube</a>
   </div>
 
   <p>Nampula, Moçambique</p>
