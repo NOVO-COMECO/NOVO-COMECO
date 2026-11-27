@@ -7,11 +7,11 @@
 <meta name="theme-color" content="#064e3b">
 <meta name="description" content="Novo Começo: projecto social de educação, prevenção dos problemas relacionados com apostas e promoção de novas oportunidades em Moçambique.">
 <meta name="robots" content="index, follow">
-<meta property="og:title" content="Novo Começo | Recuperar vidas, reconstruir futuros">
-<meta property="og:description" content="Educação, prevenção, esperança e novas oportunidades.">
-<meta property="og:type" content="website">
-<title>Novo Começo | Projecto de Educação e Prevenção</title>
+<title>Novo Começo | Educação e Prevenção</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
@@ -19,1024 +19,255 @@
   --verde:#064e3b;
   --verde-escuro:#032e23;
   --verde-claro:#087653;
-  --verde-suave:#e8f2eb;
   --dourado:#d8ad45;
-  --branco:#fff;
-  --fundo:#f3f7f4;
+  --fundo:#f5f8f5;
+  --branco:#ffffff;
   --texto:#26352e;
-  --cinza:#68776e;
-  --borda:#dfe9e2;
-  --sombra:0 8px 25px rgba(3,46,35,.07);
-  --raio:18px;
+  --suave:#e8f2eb;
 }
-
-* {
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  scroll-behavior:smooth;
-}
-
+* {box-sizing:border-box;margin:0;padding:0}
+html {scroll-behavior:smooth}
 body {
-  font-family:Arial,Helvetica,sans-serif;
+  font-family:'Inter',Arial,sans-serif;
   background:var(--fundo);
   color:var(--texto);
-  line-height:1.65;
-  padding-bottom:85px;
+  line-height:1.6;
 }
-
 a {text-decoration:none;color:inherit}
-button,input,textarea {font:inherit}
-
-a:focus-visible,button:focus-visible,
-summary:focus-visible,input:focus-visible,
-textarea:focus-visible {
-  outline:3px solid var(--dourado);
-  outline-offset:3px;
-}
-
-.container {
-  width:min(1120px,92%);
-  margin:auto;
-}
-
-/* CABEÇALHO */
-
 header {
+  background:var(--branco);
+  box-shadow:0 3px 18px rgba(0,0,0,.06);
   position:sticky;
   top:0;
-  z-index:500;
-  background:var(--verde);
-  color:white;
-  box-shadow:0 3px 18px #0002;
+  z-index:10;
 }
-
-.cabecalho {
-  width:min(1120px,92%);
-  min-height:76px;
+.topo {
+  max-width:1150px;
   margin:auto;
+  padding:15px 5%;
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
   gap:20px;
 }
-
 .logo {
   display:flex;
   align-items:center;
   gap:11px;
-  color:var(--dourado);
-  font-weight:900;
-  font-size:21px;
-  letter-spacing:.6px;
+  color:var(--verde);
+  font-weight:800;
+  font-size:19px;
+  letter-spacing:.5px;
 }
-
-.logo-simbolo {
-  width:40px;
-  height:40px;
-  border:1px solid #d8ad4570;
-  border-radius:13px;
+.logo-icone {
+  width:43px;
+  height:43px;
   display:grid;
   place-items:center;
-  background:#ffffff10;
-  font-size:19px;
-}
-
-.menu {
-  display:flex;
-  align-items:center;
-  gap:25px;
-}
-
-.menu a {
-  color:#f2f7f3;
-  font-size:14px;
-  font-weight:bold;
-  transition:color .2s;
-}
-
-.menu a:hover {color:var(--dourado)}
-
-.menu-contacto {
-  background:var(--dourado);
-  color:var(--verde-escuro)!important;
-  padding:10px 16px;
-  border-radius:9px;
-}
-
-/* PAINEL PRINCIPAL */
-
-.hero {
-  background:
-    radial-gradient(circle at 85% 10%,#ffffff17,transparent 30%),
-    linear-gradient(135deg,#032e23,#087653);
-  color:white;
-  padding:62px 0 56px;
-  position:relative;
-  overflow:hidden;
-}
-
-.hero:after {
-  content:"";
-  position:absolute;
-  width:330px;
-  height:330px;
-  border:1px solid #ffffff12;
-  border-radius:50%;
-  right:-150px;
-  bottom:-210px;
-  pointer-events:none;
-}
-
-.hero-caixa {
-  display:grid;
-  grid-template-columns:1.35fr .85fr;
-  align-items:center;
-  gap:42px;
-  position:relative;
-  z-index:1;
-}
-
-.etiqueta {
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
+  border-radius:13px;
+  background:var(--verde);
   color:var(--dourado);
-  background:#ffffff12;
-  border:1px solid #ffffff22;
-  padding:8px 13px;
-  border-radius:30px;
+  font-size:21px;
+}
+nav {display:flex;gap:23px;align-items:center}
+nav a {
+  font-size:13px;
+  font-weight:600;
+  color:var(--verde);
+}
+nav a:hover {color:var(--dourado)}
+main {overflow:hidden}
+.hero {
+  background:linear-gradient(135deg,var(--verde-escuro),var(--verde-claro));
+  color:white;
+  padding:75px 5% 80px;
+}
+.hero-conteudo {
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.3fr .7fr;
+  align-items:center;
+  gap:45px;
+}
+.etiqueta {
+  display:inline-block;
+  color:var(--dourado);
   font-size:12px;
-  font-weight:bold;
-  letter-spacing:1px;
+  font-weight:700;
+  letter-spacing:1.5px;
+  margin-bottom:17px;
   text-transform:uppercase;
 }
-
 .hero h1 {
-  max-width:690px;
   font-size:clamp(34px,5vw,54px);
   line-height:1.13;
-  margin:20px 0 17px;
-  letter-spacing:-1px;
-}
-
-.hero p {
+  margin-bottom:20px;
   max-width:650px;
-  color:#e5f0e9;
-  font-size:16px;
-  margin-bottom:25px;
 }
-
-.hero-botoes {
+.hero p {
+  color:#e1eee7;
+  max-width:600px;
+  font-size:16px;
+}
+.botoes {
   display:flex;
   flex-wrap:wrap;
-  gap:11px;
+  gap:13px;
+  margin-top:29px;
 }
-
 .botao {
   display:inline-flex;
   align-items:center;
   justify-content:center;
   gap:9px;
   padding:13px 19px;
-  border-radius:10px;
-  background:var(--dourado);
-  color:var(--verde-escuro);
-  font-size:14px;
-  font-weight:bold;
-  transition:transform .2s,background .2s;
+  border-radius:9px;
+  font-size:13px;
+  font-weight:700;
+  transition:.2s;
 }
-
-.botao:hover {
-  transform:translateY(-2px);
-  background:#e7bf5d;
-}
-
-.botao-secundario {
-  background:transparent;
-  border:1px solid #ffffff80;
-  color:white;
-}
-
-.botao-secundario:hover {
-  background:#ffffff15;
-  color:white;
-}
-
-/* PAINEL LATERAL DO INÍCIO */
-
-.hero-painel {
-  background:linear-gradient(145deg,#ffffff1c,#ffffff0a);
-  border:1px solid #ffffff35;
-  border-radius:24px;
-  padding:27px;
-  backdrop-filter:blur(8px);
-  box-shadow:0 18px 45px #001d1430;
-  position:relative;
-}
-
-.hero-painel-topo {
+.botao:hover {transform:translateY(-2px)}
+.botao-dourado {background:var(--dourado);color:var(--verde-escuro)}
+.botao-transparente {border:1px solid #ffffff80;color:white}
+.hero-imagem {
+  min-height:270px;
+  border:1px solid #ffffff30;
+  border-radius:25px;
+  background:linear-gradient(145deg,#ffffff18,#ffffff08);
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  margin-bottom:25px;
+  justify-content:center;
+  text-align:center;
+  padding:30px;
 }
-
-.hero-painel-topo span {
-  font-size:11px;
-  color:#e4eee7;
-  font-weight:bold;
-  letter-spacing:.8px;
-}
-
-.estado {
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  color:#d8f3df;
-  font-size:10px!important;
-  letter-spacing:0!important;
-}
-
-.estado i {
-  font-size:8px;
-  color:#8ee0a4;
-}
-
-.hero-painel-icone {
-  width:62px;
-  height:62px;
+.hero-imagem .simbolo {
+  width:125px;
+  height:125px;
+  margin:0 auto 18px;
   display:grid;
   place-items:center;
-  background:linear-gradient(145deg,#d8ad4540,#d8ad4515);
+  border-radius:35px;
+  background:#ffffff15;
   color:var(--dourado);
-  border:1px solid #d8ad4550;
-  border-radius:19px;
-  font-size:28px;
-  margin-bottom:19px;
+  font-size:65px;
 }
-
-.hero-painel h2 {
-  font-size:23px;
-  line-height:1.3;
-  margin-bottom:10px;
-  max-width:310px;
-}
-
-.hero-painel p {
-  font-size:13px;
-  margin:0;
-  color:#e3eee7;
-}
-
-.hero-painel-linha {
-  height:1px;
-  background:#ffffff25;
-  margin:22px 0 16px;
-}
-
-.hero-painel-frase {
-  display:flex;
-  align-items:center;
-  gap:10px;
-  color:#f1e1b6;
-  font-size:12px;
-  font-weight:bold;
-}
-
-.hero-painel-frase i {
-  color:var(--dourado);
-  font-size:15px;
-}
-
-/* SECÇÕES */
-
-section {scroll-margin-top:95px}
-
+.hero-imagem h2 {font-size:20px}
+.hero-imagem p {font-size:13px;margin-top:7px}
 .seccao {
-  padding:65px 0;
+  max-width:1100px;
+  margin:auto;
+  padding:65px 5%;
 }
-
-.seccao-cabecalho {
-  margin-bottom:28px;
-}
-
-.seccao-cabecalho small {
-  display:block;
+.seccao-titulo {text-align:center;margin-bottom:35px}
+.seccao-titulo span {
   color:var(--verde-claro);
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:1.4px;
   text-transform:uppercase;
-  margin-bottom:8px;
+  letter-spacing:1.4px;
+  font-size:11px;
+  font-weight:800;
 }
-
-.seccao-cabecalho h2 {
+.seccao-titulo h2 {
   color:var(--verde);
-  font-size:clamp(26px,4vw,34px);
-  line-height:1.2;
-  margin-bottom:9px;
+  font-size:clamp(25px,4vw,34px);
+  margin:8px 0;
 }
-
-.seccao-cabecalho p {
-  max-width:680px;
-  color:var(--cinza);
-  font-size:15px;
+.seccao-titulo p {
+  max-width:620px;
+  margin:auto;
+  color:#66736b;
+  font-size:14px;
 }
-
-/* ACESSO RÁPIDO */
-
 .acessos {
-  padding:32px 0 55px;
-}
-
-.acessos-titulo {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-  margin-bottom:19px;
-}
-
-.acessos-titulo h2 {
-  color:var(--verde);
-  font-size:21px;
-}
-
-.acessos-titulo span {
-  color:var(--cinza);
-  font-size:12px;
-}
-
-.acessos-grelha {
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:15px;
+  gap:17px;
 }
-
-.acesso {
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  gap:12px;
-  padding:20px 17px;
-  min-height:145px;
+.cartao {
   background:white;
-  border:1px solid var(--borda);
-  border-radius:16px;
-  box-shadow:var(--sombra);
-  transition:transform .2s,border .2s;
+  padding:25px 19px;
+  border-radius:15px;
+  border:1px solid #e6eee8;
+  box-shadow:0 5px 20px #123b2010;
+  transition:.2s;
 }
-
-.acesso:hover {
+.cartao:hover {
   transform:translateY(-4px);
-  border-color:#b4cfbd;
+  box-shadow:0 10px 25px #123b2018;
 }
-
-.acesso-icone {
-  width:43px;
-  height:43px;
+.cartao-icone {
+  width:49px;
+  height:49px;
   display:grid;
   place-items:center;
-  border-radius:13px;
-  background:var(--verde-suave);
+  border-radius:14px;
+  background:var(--suave);
   color:var(--verde);
-  font-size:19px;
+  font-size:21px;
+  margin-bottom:17px;
 }
-
-.acesso strong {
-  color:var(--verde);
-  font-size:14px;
-}
-
-.acesso small {
-  color:var(--cinza);
-  font-size:12px;
-  line-height:1.4;
-}
-
-/* CARTÃO DE DESTAQUE */
-
+.cartao h3 {font-size:15px;color:var(--verde);margin-bottom:8px}
+.cartao p {font-size:12px;color:#68766e;margin-bottom:17px}
+.cartao .seta {color:var(--verde-claro);font-size:12px;font-weight:700}
 .destaque {
-  padding:0 0 60px;
-}
-
-.destaque-caixa {
-  background:linear-gradient(110deg,var(--verde),#087653);
-  border-radius:22px;
-  padding:30px;
-  color:white;
+  background:var(--suave);
+  border-radius:20px;
+  padding:35px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:25px;
-  overflow:hidden;
-  position:relative;
 }
-
-.destaque-caixa:after {
-  content:"";
-  position:absolute;
-  width:230px;
-  height:230px;
-  border:35px solid #ffffff0c;
-  border-radius:50%;
-  right:10%;
-  top:-130px;
-}
-
-.destaque-texto {
-  position:relative;
-  z-index:1;
-  max-width:650px;
-}
-
-.destaque-texto small {
-  color:var(--dourado);
-  font-weight:bold;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  font-size:11px;
-}
-
-.destaque-texto h2 {
-  font-size:25px;
-  line-height:1.25;
-  margin:9px 0;
-}
-
-.destaque-texto p {
-  color:#e5f0e9;
-  font-size:14px;
-}
-
-.destaque-caixa .botao {
-  flex-shrink:0;
-  position:relative;
-  z-index:1;
-}
-
-/* TEMAS EDUCATIVOS */
-
-.temas-grelha {
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
-  align-items:start;
-}
-
-.tema {
-  background:white;
-  border:1px solid var(--borda);
-  border-radius:15px;
-  box-shadow:var(--sombra);
-  overflow:hidden;
-  transition:border .2s,transform .2s;
-}
-
-.tema[open] {border-color:#a9c9b4}
-
-.tema summary {
-  list-style:none;
-  cursor:pointer;
-  padding:19px;
-  display:flex;
-  align-items:center;
-  gap:13px;
-  color:var(--verde);
-  font-weight:bold;
-  font-size:15px;
-}
-
-.tema summary::-webkit-details-marker {display:none}
-
-.tema summary:after {
-  content:"+";
-  margin-left:auto;
-  font-size:23px;
-  color:var(--verde-claro);
-  font-weight:normal;
-}
-
-.tema[open] summary:after {content:"−"}
-
-.tema summary:hover {background:#f5f9f6}
-
-/* NOVOS ÍCONES DOS OITO TEMAS */
-
-.tema-icone {
-  width:43px;
-  height:43px;
-  flex-shrink:0;
-  display:grid;
-  place-items:center;
-  background:var(--verde-suave);
-  border:1px solid #dcebe0;
-  border-radius:13px;
-  color:var(--verde-claro);
-  font-size:18px;
-  transition:background .2s,color .2s;
-}
-
-.tema[open] .tema-icone {
-  background:var(--verde);
-  color:var(--dourado);
-  border-color:var(--verde);
-}
-
-.tema-conteudo {
-  padding:0 20px 21px;
-  border-top:1px solid #edf2ee;
-  color:var(--texto);
-  font-size:14px;
-}
-
-.tema-conteudo h3 {
-  color:var(--verde);
-  font-size:16px;
-  margin:17px 0 7px;
-}
-
-.tema-conteudo p {margin:10px 0}
-
-.tema-conteudo ul {
-  padding-left:21px;
-  margin:10px 0;
-}
-
-.tema-conteudo li {margin:7px 0}
-
-.aviso {
-  margin-top:15px;
-  padding:13px;
-  background:#edf5ef;
-  border-left:4px solid var(--dourado);
-  border-radius:6px;
-}
-
-.youtube-btn {
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:9px;
-  background:var(--verde);
-  color:white;
-  padding:11px 15px;
-  border-radius:9px;
-  margin:10px 0 0;
-  font-size:13px;
-  font-weight:bold;
-}
-
-.youtube-btn:hover {background:var(--verde-claro)}
-
-/* APOIO */
-
-.apoio {
-  background:var(--verde);
-  color:white;
-  text-align:center;
-  padding:58px 0;
-}
-
-.apoio-conteudo {
-  max-width:760px;
-  margin:auto;
-}
-
-.apoio-icone {
-  width:58px;
-  height:58px;
-  display:grid;
-  place-items:center;
-  margin:0 auto 17px;
-  border-radius:18px;
-  background:#ffffff16;
-  color:var(--dourado);
-  font-size:25px;
-}
-
-.apoio h2 {
-  font-size:clamp(27px,4vw,35px);
-  line-height:1.2;
-  margin-bottom:13px;
-}
-
-.apoio p {
-  color:#e2eee7;
-  font-size:15px;
-  margin-bottom:17px;
-}
-
-/* CONTACTO */
-
-.contacto-caixa {
-  max-width:760px;
-  margin:auto;
-  background:white;
-  padding:30px;
-  border:1px solid var(--borda);
-  border-radius:18px;
-  box-shadow:var(--sombra);
-}
-
-.contacto-intro {
-  text-align:center;
-  margin-bottom:25px;
-}
-
-.contacto-intro-icone {
-  width:55px;
-  height:55px;
-  display:grid;
-  place-items:center;
-  margin:0 auto 13px;
-  border-radius:16px;
-  background:var(--verde-suave);
-  color:var(--verde);
-  font-size:23px;
-}
-
-.contacto-intro h3 {
-  color:var(--verde);
-  font-size:22px;
-  margin-bottom:5px;
-}
-
-.contacto-intro p {
-  color:var(--cinza);
-  font-size:13px;
-}
-
-.campo {margin-bottom:17px}
-
-.campo label {
-  display:block;
-  color:var(--verde);
-  font-size:13px;
-  font-weight:bold;
-  margin-bottom:7px;
-}
-
-.campo input,.campo textarea {
-  width:100%;
-  padding:13px 14px;
-  border:1px solid #cbd9cf;
-  border-radius:9px;
-  background:#fbfdfb;
-  color:var(--texto);
-  font-size:14px;
-}
-
-.campo input:focus,.campo textarea:focus {
-  outline:none;
-  border-color:var(--verde-claro);
-  box-shadow:0 0 0 3px #08765318;
-}
-
-.campo textarea {
-  min-height:140px;
-  resize:vertical;
-}
-
-.campo input::placeholder,.campo textarea::placeholder {
-  color:#89968e;
-}
-
-.botao-enviar {
-  width:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:9px;
-  padding:14px;
-  border:0;
-  border-radius:9px;
-  background:var(--verde);
-  color:white;
-  font-weight:bold;
-  cursor:pointer;
-  transition:background .2s;
-}
-
-.botao-enviar:hover {background:var(--verde-claro)}
-
-.contacto-nota {
-  margin-top:13px;
-  text-align:center;
-  color:var(--cinza);
-  font-size:11px;
-}
-
-.contacto-nota i {
-  color:var(--verde-claro);
-  margin-right:5px;
-}
-
-/* RODAPÉ */
-
-footer {
+.destaque h2 {color:var(--verde);font-size:24px;margin-bottom:8px}
+.destaque p {font-size:13px;color:#5f7065;max-width:600px}
+.destaque .botao {background:var(--verde);color:white;white-space:nowrap}
+.youtube {
   background:var(--verde-escuro);
   color:white;
-  padding:35px 0;
+  padding:40px 5%;
   text-align:center;
 }
-
-footer .logo {
-  justify-content:center;
-  margin-bottom:12px;
+.youtube h2 {font-size:23px;margin-bottom:8px}
+.youtube p {font-size:13px;color:#d5e4da;margin-bottom:20px}
+.youtube .botao {background:#d8ad45;color:var(--verde-escuro)}
+footer {
+  background:#021f18;
+  color:#dce8df;
+  padding:30px 5%;
+  text-align:center;
 }
-
-footer p {
-  color:#dce9e0;
-  font-size:13px;
-  margin:5px 0;
-}
-
+footer strong {color:var(--dourado)}
+footer p {font-size:12px;margin:6px 0}
 .rodape-links {
   display:flex;
   justify-content:center;
   flex-wrap:wrap;
-  gap:20px;
+  gap:18px;
   margin:17px 0;
 }
-
-.rodape-links a {
-  color:var(--dourado);
-  font-size:13px;
-  font-weight:bold;
+.rodape-links a {font-size:12px;color:#dce8df}
+@media(max-width:800px) {
+  .hero-conteudo {grid-template-columns:1fr}
+  .hero-imagem {min-height:210px}
+  .acessos {grid-template-columns:repeat(2,1fr)}
 }
-
-/* NAVEGAÇÃO INFERIOR */
-
-.menu-inferior {display:none}
-
-/* ATENDIMENTO AUTOMÁTICO */
-
-.chat-abrir {
-  position:fixed;
-  right:20px;
-  bottom:22px;
-  z-index:1000;
-  border:0;
-  border-radius:30px;
-  padding:14px 19px;
-  background:var(--dourado);
-  color:var(--verde-escuro);
-  font-size:13px;
-  font-weight:bold;
-  cursor:pointer;
-  box-shadow:0 5px 20px #0003;
-}
-
-.chat-painel {
-  display:none;
-  position:fixed;
-  right:16px;
-  bottom:82px;
-  z-index:1001;
-  width:min(390px,calc(100vw - 24px));
-  height:min(590px,calc(100dvh - 110px));
-  background:white;
-  border:1px solid var(--borda);
-  border-radius:17px;
-  overflow:hidden;
-  box-shadow:0 12px 40px #0003;
-}
-
-.chat-painel.aberto {
-  display:flex;
-  flex-direction:column;
-}
-
-.chat-topo {
-  background:var(--verde);
-  color:white;
-  padding:16px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-}
-
-.chat-topo strong {
-  display:block;
-  font-size:17px;
-}
-
-.chat-topo small {
-  font-size:12px;
-  color:#e2eee7;
-}
-
-.chat-fechar {
-  border:0;
-  background:transparent;
-  color:white;
-  font-size:28px;
-  cursor:pointer;
-  padding:0 5px;
-}
-
-.chat-corpo {
-  padding:15px;
-  overflow-y:auto;
-  flex:1;
-  background:#f5f8f5;
-}
-
-.chat-resposta {
-  background:white;
-  border:1px solid var(--borda);
-  padding:14px;
-  border-radius:11px;
-  margin-bottom:12px;
-  font-size:14px;
-  line-height:1.55;
-  overflow-wrap:anywhere;
-}
-
-.chat-resposta p {margin-top:8px}
-
-.chat-opcoes {
-  display:grid;
-  gap:8px;
-  margin-top:13px;
-}
-
-.chat-opcao {
-  display:block;
-  width:100%;
-  padding:11px 12px;
-  border:1px solid #b9d1c1;
-  border-radius:9px;
-  background:white;
-  color:var(--verde);
-  text-align:left;
-  font-weight:bold;
-  font-size:13px;
-  cursor:pointer;
-}
-
-.chat-opcao:hover {background:#eaf4ed}
-
-.chat-youtube {
-  display:inline-block;
-  background:var(--verde);
-  color:white;
-  padding:10px 13px;
-  border-radius:8px;
-  margin-top:12px;
-  font-weight:bold;
-  font-size:13px;
-}
-
-.chat-youtube i {margin-right:6px}
-
-.chat-rodape {
-  padding:12px 15px;
-  background:white;
-  border-top:1px solid var(--borda);
-}
-
-.chat-rodape p {
-  font-size:12px;
-  color:var(--cinza);
-  line-height:1.45;
-}
-
-/* ADAPTAÇÃO A ECRÃS PEQUENOS */
-
-@media(max-width:760px) {
-  body {padding-bottom:76px}
-
-  .cabecalho {
-    min-height:66px;
-  }
-
-  .menu {gap:13px}
-  .menu a {font-size:12px}
-  .menu-contacto {padding:8px 11px}
-
-  .hero {padding:43px 0}
-  .hero-caixa {grid-template-columns:1fr;gap:27px}
-  .hero-painel {padding:22px}
-
-  .acessos-grelha {grid-template-columns:repeat(2,1fr)}
-  .acesso {min-height:125px;padding:16px}
-
-  .destaque-caixa {
-    align-items:flex-start;
-    flex-direction:column;
-    padding:24px;
-  }
-
-  .temas-grelha {grid-template-columns:1fr}
-}
-
-@media(max-width:520px) {
-  .container {width:90%}
-
-  .cabecalho {
-    width:90%;
-    min-height:62px;
-  }
-
-  .logo {font-size:18px}
-  .logo-simbolo {width:35px;height:35px}
-
-  .menu a:not(.menu-contacto) {display:none}
-
-  .hero {padding:38px 0}
+@media(max-width:600px) {
+  .topo {padding:12px 4%;flex-wrap:wrap}
+  .logo {font-size:16px}
+  .logo-icone {width:38px;height:38px}
+  nav {width:100%;justify-content:space-between;gap:8px}
+  nav a {font-size:11px}
+  .hero {padding:52px 6%}
   .hero h1 {font-size:36px}
   .hero p {font-size:14px}
-
-  .hero-botoes {
-    display:grid;
-    grid-template-columns:1fr 1fr;
-  }
-
-  .botao {padding:12px 10px;font-size:12px}
-
-  .hero-painel {padding:21px}
-  .hero-painel h2 {font-size:21px}
-  .hero-painel-topo span {font-size:10px}
-
-  .seccao {padding:48px 0}
-  .acessos {padding:27px 0 43px}
-  .acessos-titulo h2 {font-size:18px}
-  .acessos-titulo span {font-size:10px}
-
-  .acesso {min-height:120px}
-  .acesso strong {font-size:13px}
-
-  .destaque {padding-bottom:45px}
-  .destaque-texto h2 {font-size:22px}
-
-  .tema summary {
-    padding:16px;
-    font-size:14px;
-    gap:11px;
-  }
-
-  .tema-icone {
-    width:40px;
-    height:40px;
-    font-size:17px;
-  }
-
-  .contacto-caixa {padding:22px 16px}
-
-  .menu-inferior {
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    position:fixed;
-    bottom:0;
-    left:0;
-    width:100%;
-    z-index:900;
-    background:white;
-    border-top:1px solid var(--borda);
-    padding:9px 5px calc(9px + env(safe-area-inset-bottom));
-    box-shadow:0 -4px 18px #0000000c;
-  }
-
-  .menu-inferior a {
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:4px;
-    color:var(--cinza);
-    font-size:10px;
-    font-weight:bold;
-  }
-
-  .menu-inferior i {
-    font-size:18px;
-    color:var(--verde);
-  }
-
-  .chat-abrir {
-    right:12px;
-    bottom:87px;
-    padding:12px 15px;
-    font-size:12px;
-  }
-
-  .chat-painel {
-    right:10px;
-    bottom:145px;
-    width:calc(100vw - 20px);
-    height:calc(100dvh - 165px);
-  }
-}
-
-@media(prefers-reduced-motion:reduce) {
-  *,*::before,*::after {
-    scroll-behavior:auto!important;
-    transition:none!important;
-  }
+  .hero-imagem {min-height:190px}
+  .seccao {padding:48px 5%}
+  .acessos {gap:11px}
+  .cartao {padding:19px 14px}
+  .cartao h3 {font-size:13px}
+  .cartao p {font-size:11px}
+  .destaque {padding:25px 20px;display:block}
+  .destaque .botao {margin-top:18px}
 }
 </style>
 </head>
@@ -1044,728 +275,131 @@ footer p {
 <body>
 
 <header>
-  <div class="cabecalho">
-    <a class="logo" href="#inicio" aria-label="Novo Começo - início">
-      <span class="logo-simbolo"><i class="fa-solid fa-seedling"></i></span>
-      NOVO COMEÇO
+  <div class="topo">
+    <a class="logo" href="index.html" target="_blank" rel="noopener">
+      <span class="logo-icone"><i class="fa-solid fa-seedling"></i></span>
+      <span>NOVO COMEÇO</span>
     </a>
 
-    <nav class="menu" aria-label="Menu principal">
-      <a href="#inicio">Início</a>
-      <a href="#temas">Temas</a>
-      <a href="#apoio">Apoio</a>
-      <a class="menu-contacto" href="#contacto">Contacto</a>
+    <nav>
+      <a href="index.html" target="_blank" rel="noopener">Início</a>
+      <a href="temas.html" target="_blank" rel="noopener">Temas</a>
+      <a href="apoio.html" target="_blank" rel="noopener">Apoio</a>
+      <a href="contacto.html" target="_blank" rel="noopener">Contacto</a>
     </nav>
   </div>
 </header>
 
 <main>
-
-<!-- APRESENTAÇÃO PRINCIPAL -->
-
-<section class="hero" id="inicio">
-  <div class="container hero-caixa">
-
-    <div>
-      <span class="etiqueta">
-        <i class="fa-solid fa-leaf"></i>
-        Educação • Prevenção • Esperança
-      </span>
-
-      <h1>Um novo começo pode mudar uma vida.</h1>
-
-      <p>
-        Trabalhamos para sensibilizar sobre os riscos das apostas,
-        promover escolhas conscientes e ajudar pessoas e famílias
-        a construir um futuro com mais esperança e oportunidades.
-      </p>
-
-      <div class="hero-botoes">
-        <a class="botao" href="#temas">
-          <i class="fa-solid fa-book-open"></i>
-          Explorar conteúdos
-        </a>
-
-        <a class="botao botao-secundario" href="#apoio">
-          Conhecer o apoio
-          <i class="fa-solid fa-arrow-right"></i>
-        </a>
-      </div>
-    </div>
-
-    <div class="hero-painel">
-      <div class="hero-painel-topo">
-        <span>PROJECTO SOCIAL</span>
-        <span class="estado">
-          <i class="fa-solid fa-circle"></i>
-          Informação e prevenção
-        </span>
-      </div>
-
-      <div class="hero-painel-icone">
-        <i class="fa-solid fa-hands-holding-circle"></i>
-      </div>
-
-      <h2>O conhecimento pode abrir novos caminhos.</h2>
-
-      <p>
-        Informação, consciência e apoio para construir
-        escolhas mais saudáveis e um futuro melhor.
-      </p>
-
-      <div class="hero-painel-linha"></div>
-
-      <div class="hero-painel-frase">
-        <i class="fa-solid fa-heart"></i>
-        Recuperar vidas. Reconstruir futuros.
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ACESSOS RÁPIDOS -->
-
-<section class="acessos">
-  <div class="container">
-
-    <div class="acessos-titulo">
-      <h2>Explore o Novo Começo</h2>
-      <span>Acesso rápido</span>
-    </div>
-
-    <div class="acessos-grelha">
-
-      <a class="acesso" href="#temas">
-        <span class="acesso-icone">
-          <i class="fa-solid fa-book-open"></i>
-        </span>
-        <strong>Educação</strong>
-        <small>Conheça os nossos conteúdos educativos.</small>
-      </a>
-
-      <a class="acesso" href="#temas">
-        <span class="acesso-icone">
-          <i class="fa-solid fa-shield-heart"></i>
-        </span>
-        <strong>Prevenção</strong>
-        <small>Aprenda a reconhecer e evitar riscos.</small>
-      </a>
-
-      <a class="acesso" href="#apoio">
-        <span class="acesso-icone">
-          <i class="fa-solid fa-handshake-angle"></i>
-        </span>
-        <strong>Apoio</strong>
-        <small>Conheça formas de procurar orientação.</small>
-      </a>
-
-      <a class="acesso" href="#contacto">
-        <span class="acesso-icone">
-          <i class="fa-solid fa-envelope"></i>
-        </span>
-        <strong>Contacto</strong>
-        <small>Envie uma mensagem à nossa equipa.</small>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- DESTAQUE -->
-
-<section class="destaque">
-  <div class="container">
-    <div class="destaque-caixa">
-      <div class="destaque-texto">
-        <small>Uma mensagem importante</small>
-        <h2>Prevenir é proteger o presente e construir o futuro.</h2>
+  <section class="hero">
+    <div class="hero-conteudo">
+      <div>
+        <span class="etiqueta">Educação • Prevenção • Esperança</span>
+        <h1>Um novo começo pode mudar uma vida.</h1>
         <p>
-          Conhecer os riscos das apostas é um passo importante
-          para tomar decisões conscientes e proteger a família.
+          Trabalhamos para sensibilizar sobre os riscos das apostas,
+          promover escolhas conscientes e ajudar pessoas e famílias
+          a reconstruir os seus futuros.
         </p>
-      </div>
 
-      <a class="botao" href="#temas">
-        Saber mais
-        <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- TEMAS EDUCATIVOS -->
-
-<section class="seccao" id="temas">
-  <div class="container">
-
-    <div class="seccao-cabecalho">
-      <small>Conhecimento e consciência</small>
-      <h2>Explore os nossos temas</h2>
-      <p>
-        Informação clara e educativa para compreender os riscos,
-        prevenir problemas e conhecer novas possibilidades.
-      </p>
-    </div>
-
-    <div class="temas-grelha">
-
-      <details class="tema">
-        <summary>
-          <span class="tema-icone"><i class="fa-solid fa-users"></i></span>
-          <span>1. Quem somos</span>
-        </summary>
-        <div class="tema-conteudo">
-          <h3>Sobre o Novo Começo</h3>
-          <p>
-            O Novo Começo é um projecto social que promove a educação,
-            a prevenção dos problemas relacionados com as apostas
-            e a construção de novas oportunidades.
-          </p>
-          <p>
-            A nossa missão é partilhar informação, incentivar decisões
-            conscientes e encorajar pessoas e famílias a procurar apoio.
-          </p>
-          <div class="aviso">
-            <strong>O nosso lema:</strong>
-            Recuperar vidas. Reconstruir futuros.
-          </div>
-        </div>
-      </details>
-
-      <details class="tema">
-        <summary>
-          <span class="tema-icone"><i class="fa-solid fa-bullseye"></i></span>
-          <span>2. Compreender as apostas</span>
-        </summary>
-        <div class="tema-conteudo">
-          <h3>O que são apostas?</h3>
-          <p>
-            As apostas envolvem arriscar dinheiro ou outros valores
-            num resultado incerto, por exemplo, num evento desportivo.
-          </p>
-          <h3>O que é importante saber?</h3>
-          <ul>
-            <li>Não existe garantia de ganhar.</li>
-            <li>Uma vitória não garante vitórias futuras.</li>
-            <li>É possível perder dinheiro necessário para despesas essenciais.</li>
-            <li>As apostas não são uma fonte segura de rendimento.</li>
-          </ul>
-        </div>
-      </details>
-
-      <details class="tema">
-        <summary>
-          <span class="tema-icone"><i class="fa-solid fa-shield-heart"></i></span>
-          <span>3. Prevenção das apostas</span>
-        </summary>
-        <div class="tema-conteudo">
-          <h3>Como prevenir problemas?</h3>
-          <ul>
-            <li>Conheça os riscos antes de tomar decisões.</li>
-            <li>Não utilize dinheiro destinado às necessidades essenciais.</li>
-            <li>Não peça empréstimos para apostar.</li>
-            <li>Evite tentar recuperar perdas através de novas apostas.</li>
-            <li>Procure actividades saudáveis para ocupar o tempo.</li>
-          </ul>
-          <p>
-            Prevenir começa com informação e decisões que protegem
-            o seu bem-estar e o da sua família.
-          </p>
-        </div>
-      </details>
-
-      <details class="tema">
-        <summary>
-          <span class="tema-icone"><i class="fa-solid fa-magnifying-glass"></i></span>
-          <span>4. Sinais de alerta</span>
-        </summary>
-        <div class="tema-conteudo">
-          <h3>Quando é necessário prestar atenção?</h3>
-          <ul>
-            <li>Pensar frequentemente em apostar.</li>
-            <li>Gastar mais dinheiro do que tinha planeado.</li>
-            <li>Tentar recuperar dinheiro perdido apostando novamente.</li>
-            <li>Esconder as apostas ou mentir sobre o dinheiro gasto.</li>
-            <li>Negligenciar trabalho, estudos ou responsabilidades familiares.</li>
-            <li>Sentir dificuldade em parar, mesmo quando deseja fazê-lo.</li>
-          </ul>
-          <p>Estes sinais podem indicar que é importante procurar ajuda.</p>
-        </div>
-      </details>
-
-      <details class="tema">
-        <summary>
-          <span class="tema-icone"><i class="fa-solid fa-heart-crack"></i></span>
-          <span>5. Consequências das apostas</span>
-        </summary>
-        <div class="tema-conteudo">
-          <h3>Impactos possíveis</h3>
-          <p>
-            Quando as apostas deixam de estar sob controlo,
-            podem afectar várias áreas da vida.
-          </p>
-          <ul>
-            <li><strong>Financeira:</strong> dívidas e perda de dinheiro necessário.</li>
-            <li><strong>Familiar:</strong> conflitos e perda de confiança.</li>
-            <li><strong>Profissional:</strong> dificuldades no trabalho ou nos estudos.</li>
-            <li><strong>Emocional:</strong> stress, culpa, ansiedade ou desânimo.</li>
-          </ul>
-          <p>
-            Reconhecer os problemas é um passo importante
-            para procurar soluções.
-          </p>
-        </div>
-      </details>
-
-      <details class="tema">
-        <summary>
-          <span class="tema-icone"><i class="fa-solid fa-hand-holding-heart"></i></span>
-          <span>6. Apoio para pessoas e famílias</span>
-        </summary>
-        <div class="tema-conteudo">
-          <h3>Como dar o primeiro passo?</h3>
-          <ul>
-            <li>Converse com uma pessoa de confiança.</li>
-            <li>Procure um profissional de saúde quando necessário.</li>
-            <li>Peça ajuda para organizar as suas despesas e dívidas.</li>
-            <li>Evite julgar ou humilhar alguém que esteja a enfrentar este problema.</li>
-            <li>Incentive a procura de apoio de forma respeitosa.</li>
-          </ul>
-          <p>
-            Familiares e amigos podem oferecer apoio e encorajar
-            a procura de ajuda.
-          </p>
-          <a class="youtube-btn"
-             href="https://www.youtube.com/@Novo-Comeco-m6u"
-             target="_blank" rel="noopener noreferrer">
-            <i class="fa-brands fa-youtube"></i>
-            Visite o nosso canal oficial
+        <div class="botoes">
+          <a class="botao botao-dourado" href="temas.html" target="_blank" rel="noopener">
+            <i class="fa-solid fa-book-open"></i> Conhecer os temas
+          </a>
+          <a class="botao botao-transparente" href="apoio.html" target="_blank" rel="noopener">
+            <i class="fa-solid fa-hand-holding-heart"></i> Procurar apoio
           </a>
         </div>
-      </details>
-
-      <details class="tema">
-        <summary>
-          <span class="tema-icone"><i class="fa-solid fa-wallet"></i></span>
-          <span>7. Orientação financeira</span>
-        </summary>
-        <div class="tema-conteudo">
-          <h3>Como começar a reorganizar as finanças?</h3>
-          <ul>
-            <li>Anote o dinheiro que recebe e as despesas que tem.</li>
-            <li>Priorize alimentação, habitação, transporte e outras necessidades básicas.</li>
-            <li>Registe as dívidas e organize um plano realista para as pagar.</li>
-            <li>Evite contrair novas dívidas para apostar ou recuperar perdas.</li>
-            <li>Defina objectivos financeiros pequenos e alcançáveis.</li>
-          </ul>
-          <div class="aviso">
-            Pequenas decisões conscientes podem ajudar a construir
-            hábitos financeiros mais saudáveis.
-          </div>
-        </div>
-      </details>
-
-      <details class="tema">
-        <summary>
-          <span class="tema-icone"><i class="fa-solid fa-chalkboard-user"></i></span>
-          <span>8. Actividades e palestras</span>
-        </summary>
-        <div class="tema-conteudo">
-          <h3>O que promovemos?</h3>
-          <ul>
-            <li>Palestras educativas e sensibilização.</li>
-            <li>Informação sobre prevenção das apostas.</li>
-            <li>Mensagens de motivação e novas oportunidades.</li>
-            <li>Orientação educativa sobre organização financeira.</li>
-          </ul>
-          <p>
-            Acompanhe o canal oficial para conhecer as actividades
-            e as informações sobre as próximas palestras.
-          </p>
-          <a class="botao"
-             href="https://www.youtube.com/@Novo-Comeco-m6u"
-             target="_blank" rel="noopener noreferrer">
-            Acompanhar actividades
-            <i class="fa-brands fa-youtube"></i>
-          </a>
-        </div>
-      </details>
-
-    </div>
-  </div>
-</section>
-
-<!-- APOIO -->
-
-<section class="apoio" id="apoio">
-  <div class="container apoio-conteudo">
-
-    <div class="apoio-icone">
-      <i class="fa-solid fa-hands-holding-circle"></i>
-    </div>
-
-    <h2>Não precisa de enfrentar tudo sozinho.</h2>
-
-    <p>
-      Se as apostas estão a afectar a sua vida ou a sua família,
-      dê o primeiro passo. Acompanhe o Novo Começo e conheça
-      as nossas informações, actividades e formas de participação.
-    </p>
-
-    <a class="botao"
-       href="https://www.youtube.com/@Novo-Comeco-m6u"
-       target="_blank" rel="noopener noreferrer">
-      <i class="fa-brands fa-youtube"></i>
-      Visite o nosso canal oficial
-    </a>
-
-    <p style="margin-top:18px">
-      Também pode enviar uma mensagem directamente através
-      do nosso formulário de contacto.
-    </p>
-
-    <a class="botao botao-secundario" href="#contacto">
-      <i class="fa-regular fa-envelope"></i>
-      Enviar uma mensagem
-    </a>
-
-  </div>
-</section>
-
-<!-- CONTACTO -->
-
-<section class="seccao" id="contacto">
-  <div class="container">
-
-    <div class="seccao-cabecalho">
-      <small>Estamos disponíveis para ouvir</small>
-      <h2>Fale connosco</h2>
-      <p>
-        Tem uma dúvida, uma sugestão ou deseja saber mais sobre
-        o Novo Começo? Envie-nos uma mensagem.
-      </p>
-    </div>
-
-    <div class="contacto-caixa">
-
-      <div class="contacto-intro">
-        <div class="contacto-intro-icone">
-          <i class="fa-regular fa-envelope"></i>
-        </div>
-        <h3>Entre em contacto</h3>
-        <p>
-          Preencha os campos abaixo. A sua mensagem será encaminhada
-          para a equipa do Novo Começo.
-        </p>
       </div>
 
-      <form action="https://formsubmit.app/f/5mq2zcexj8" method="POST">
-
-        <div class="campo">
-          <label for="fs-name">Nome completo</label>
-          <input id="fs-name" type="text" name="name"
-            placeholder="Escreva o seu nome"
-            autocomplete="name" required>
+      <div class="hero-imagem">
+        <div>
+          <div class="simbolo"><i class="fa-solid fa-seedling"></i></div>
+          <h2>Recuperar vidas.</h2>
+          <p>Reconstruir futuros.</p>
         </div>
-
-        <div class="campo">
-          <label for="fs-email">Endereço de e-mail</label>
-          <input id="fs-email" type="email" name="email"
-            placeholder="exemplo@email.com"
-            autocomplete="email" required>
-        </div>
-
-        <div class="campo">
-          <label for="fs-subject">Assunto</label>
-          <input id="fs-subject" type="text" name="subject"
-            placeholder="Qual é o assunto da sua mensagem?"
-            required>
-        </div>
-
-        <div class="campo">
-          <label for="fs-message">A sua mensagem</label>
-          <textarea id="fs-message" name="message" rows="6"
-            placeholder="Escreva aqui a sua mensagem..."
-            required></textarea>
-        </div>
-
-        <input type="text" name="_gotcha" tabindex="-1"
-          autocomplete="off" aria-hidden="true"
-          style="display:none">
-
-        <input type="hidden" name="_subject"
-          value="Nova mensagem recebida - Novo Começo">
-
-        <button class="botao-enviar" type="submit">
-          <i class="fa-solid fa-paper-plane"></i>
-          Enviar mensagem
-        </button>
-
-        <p class="contacto-nota">
-          <i class="fa-solid fa-lock"></i>
-          Evite incluir palavras-passe ou informações pessoais sensíveis.
-        </p>
-
-      </form>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <section class="seccao">
+    <div class="seccao-titulo">
+      <span>Explore o projecto</span>
+      <h2>Como podemos ajudar?</h2>
+      <p>Encontre informação, orientação e caminhos para escolhas mais conscientes.</p>
+    </div>
+
+    <div class="acessos">
+      <a class="cartao" href="temas.html" target="_blank" rel="noopener">
+        <div class="cartao-icone"><i class="fa-solid fa-book-open"></i></div>
+        <h3>Educação e informação</h3>
+        <p>Conheça os conteúdos educativos sobre as apostas e os seus riscos.</p>
+        <span class="seta">Explorar temas <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+
+      <a class="cartao" href="temas.html" target="_blank" rel="noopener">
+        <div class="cartao-icone"><i class="fa-solid fa-shield-heart"></i></div>
+        <h3>Prevenção</h3>
+        <p>Aprenda a reconhecer riscos e a adoptar comportamentos responsáveis.</p>
+        <span class="seta">Saber mais <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+
+      <a class="cartao" href="apoio.html" target="_blank" rel="noopener">
+        <div class="cartao-icone"><i class="fa-solid fa-hand-holding-heart"></i></div>
+        <h3>Apoio e orientação</h3>
+        <p>Encontre informação de apoio para pessoas e famílias.</p>
+        <span class="seta">Ver apoio <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+
+      <a class="cartao" href="contacto.html" target="_blank" rel="noopener">
+        <div class="cartao-icone"><i class="fa-solid fa-envelope"></i></div>
+        <h3>Fale connosco</h3>
+        <p>Envie uma mensagem ou partilhe as suas dúvidas com o projecto.</p>
+        <span class="seta">Entrar em contacto <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="seccao" style="padding-top:0">
+    <div class="destaque">
+      <div>
+        <h2>O conhecimento é o primeiro passo.</h2>
+        <p>
+          A informação pode ajudar a prevenir problemas relacionados
+          com as apostas e a construir decisões mais conscientes.
+          Explore os oito temas educativos do Novo Começo.
+        </p>
+      </div>
+      <a class="botao" href="temas.html" target="_blank" rel="noopener">
+        Ver os 8 temas <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </section>
+
+  <section class="youtube">
+    <h2>Acompanhe o Novo Começo</h2>
+    <p>Veja os nossos conteúdos e acompanhe as actividades através do YouTube.</p>
+    <a class="botao" href="https://www.youtube.com/@Novo-Comeco-m6u" target="_blank" rel="noopener">
+      <i class="fa-brands fa-youtube"></i> Visitar o nosso canal
+    </a>
+  </section>
 </main>
 
-<!-- RODAPÉ -->
-
 <footer>
-  <div class="container">
-    <a class="logo" href="#inicio">
-      <span class="logo-simbolo">
-        <i class="fa-solid fa-seedling"></i>
-      </span>
-      NOVO COMEÇO
-    </a>
+  <strong>NOVO COMEÇO</strong>
+  <p>Recuperar vidas. Reconstruir futuros.</p>
 
-    <p>Recuperar vidas. Reconstruir futuros.</p>
-    <p>Nampula, Moçambique</p>
-
-    <div class="rodape-links">
-      <a href="#inicio">Início</a>
-      <a href="#temas">Temas</a>
-      <a href="#apoio">Apoio</a>
-      <a href="#contacto">Contacto</a>
-    </div>
-
-    <p>© <span id="ano"></span> Novo Começo. Todos os direitos reservados.</p>
+  <div class="rodape-links">
+    <a href="index.html" target="_blank" rel="noopener">Início</a>
+    <a href="temas.html" target="_blank" rel="noopener">Temas</a>
+    <a href="apoio.html" target="_blank" rel="noopener">Apoio</a>
+    <a href="contacto.html" target="_blank" rel="noopener">Contacto</a>
+    <a href="https://www.youtube.com/@Novo-Comeco-m6u" target="_blank" rel="noopener">YouTube</a>
   </div>
+
+  <p>Nampula, Moçambique</p>
+  <p>© 2026 Novo Começo. Todos os direitos reservados.</p>
 </footer>
-
-<!-- NAVEGAÇÃO INFERIOR NO TELEMÓVEL -->
-
-<nav class="menu-inferior" aria-label="Navegação rápida">
-  <a href="#inicio">
-    <i class="fa-solid fa-house"></i>
-    Início
-  </a>
-  <a href="#temas">
-    <i class="fa-solid fa-book-open"></i>
-    Temas
-  </a>
-  <a href="#apoio">
-    <i class="fa-solid fa-hand-holding-heart"></i>
-    Apoio
-  </a>
-  <a href="#contacto">
-    <i class="fa-solid fa-envelope"></i>
-    Contacto
-  </a>
-</nav>
-
-<!-- ATENDIMENTO AUTOMÁTICO -->
-
-<button class="chat-abrir" id="chatAbrir" type="button"
-  aria-controls="chatPainel" aria-expanded="false">
-  <i class="fa-regular fa-comments"></i>
-  Atendimento automático
-</button>
-
-<div class="chat-painel" id="chatPainel"
-  role="dialog" aria-label="Atendimento automático Novo Começo"
-  aria-modal="false">
-
-  <div class="chat-topo">
-    <div>
-      <strong>Novo Começo</strong>
-      <small>Informação e orientação</small>
-    </div>
-    <button class="chat-fechar" id="chatFechar"
-      type="button" aria-label="Fechar atendimento">×</button>
-  </div>
-
-  <div class="chat-corpo" id="chatCorpo" aria-live="polite"></div>
-
-  <div class="chat-rodape">
-    <p>
-      Para contactar directamente o projecto,
-      utilize o formulário disponível no nosso site.
-    </p>
-
-    <a class="chat-youtube"
-      href="https://www.youtube.com/@Novo-Comeco-m6u"
-      target="_blank" rel="noopener noreferrer">
-      <i class="fa-brands fa-youtube"></i>
-      Visitar o canal oficial
-    </a>
-
-    <a class="chat-youtube" href="#contacto" id="chatContacto">
-      <i class="fa-regular fa-envelope"></i>
-      Enviar uma mensagem
-    </a>
-  </div>
-</div>
-
-<script>
-document.getElementById("ano").textContent =
-  new Date().getFullYear();
-
-/* ABRIR APENAS UM TEMA DE CADA VEZ */
-
-document.querySelectorAll("#temas .tema").forEach(function(tema) {
-  tema.addEventListener("toggle", function() {
-    if (tema.open) {
-      document.querySelectorAll("#temas .tema").forEach(function(outro) {
-        if (outro !== tema) outro.open = false;
-      });
-    }
-  });
-});
-
-/* ATENDIMENTO AUTOMÁTICO */
-
-(function() {
-  const abrir = document.getElementById("chatAbrir");
-  const fechar = document.getElementById("chatFechar");
-  const painel = document.getElementById("chatPainel");
-  const corpo = document.getElementById("chatCorpo");
-  const contacto = document.getElementById("chatContacto");
-
-  const respostas = [
-    [
-      "🌱 Conhecer o Novo Começo",
-      "O Novo Começo é um projecto social dedicado à educação, à prevenção dos problemas relacionados com as apostas e à construção de novas oportunidades. Trabalhamos para promover informação, escolhas conscientes e esperança."
-    ],
-    [
-      "🤝 Como funciona o atendimento?",
-      "O Novo Começo disponibiliza informação educativa e recebe mensagens através do formulário de contacto no nosso site. Para enviar uma dúvida ou pedido de informação, escolha a opção de contacto abaixo."
-    ],
-    [
-      "📝 Como participar no projecto?",
-      "Para acompanhar o projecto, conhecer as actividades e saber como participar, visite o nosso canal oficial no YouTube ou envie-nos uma mensagem através do formulário de contacto."
-    ],
-    [
-      "🕒 Quais são os horários?",
-      "O horário habitual de atendimento é de segunda a sexta-feira, das 10h00 às 20h30. As palestras estão previstas para sábados e domingos, das 19h30 às 20h30. Consulte o canal oficial para confirmar as actividades."
-    ],
-    [
-      "📚 Actividades e palestras",
-      "Promovemos palestras educativas, sensibilização sobre os riscos das apostas e partilha de informação útil. Acompanhe o canal oficial no YouTube para conhecer as actividades e as respectivas informações."
-    ],
-    [
-      "🛡️ Prevenção das apostas",
-      "A prevenção começa com informação. Evite utilizar dinheiro destinado às necessidades essenciais para apostar, não contraia dívidas para jogar e procure apoio se sentir dificuldade em parar. Conhecer os riscos é um passo importante para proteger a sua vida e a sua família."
-    ],
-    [
-      "💰 Educação financeira",
-      "A organização financeira começa por conhecer os seus rendimentos, despesas e dívidas. Dê prioridade às necessidades essenciais, evite novas dívidas para apostar e estabeleça objectivos realistas."
-    ],
-    [
-      "❤️ Como apoiar o projecto?",
-      "Pode apoiar o Novo Começo acompanhando o nosso canal no YouTube, partilhando as mensagens educativas e divulgando as actividades de sensibilização. Cada partilha pode ajudar a levar informação a mais pessoas."
-    ]
-  ];
-
-  function mostrarMenu() {
-    corpo.replaceChildren();
-
-    const saudacao = document.createElement("div");
-    saudacao.className = "chat-resposta";
-
-    const mensagem = document.createElement("p");
-    mensagem.textContent =
-      "Olá! Seja bem-vindo(a) ao Novo Começo. 🌱 É um prazer receber a sua visita. Escolha um dos assuntos abaixo para conhecer melhor o nosso projecto.";
-
-    const lista = document.createElement("div");
-    lista.className = "chat-opcoes";
-
-    respostas.forEach(function(item, indice) {
-      const botao = document.createElement("button");
-      botao.type = "button";
-      botao.className = "chat-opcao";
-      botao.textContent = item[0];
-
-      botao.addEventListener("click", function() {
-        mostrarResposta(indice);
-      });
-
-      lista.appendChild(botao);
-    });
-
-    saudacao.appendChild(mensagem);
-    saudacao.appendChild(lista);
-    corpo.appendChild(saudacao);
-    corpo.scrollTop = 0;
-  }
-
-  function mostrarResposta(indice) {
-    corpo.replaceChildren();
-
-    const resposta = document.createElement("div");
-    resposta.className = "chat-resposta";
-
-    const titulo = document.createElement("strong");
-    titulo.textContent = respostas[indice][0];
-
-    const texto = document.createElement("p");
-    texto.textContent = respostas[indice][1];
-
-    resposta.append(titulo, texto);
-
-    const link = document.createElement("a");
-    link.className = "chat-youtube";
-    link.href = "https://www.youtube.com/@Novo-Comeco-m6u";
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-    link.innerHTML =
-      '<i class="fa-brands fa-youtube" aria-hidden="true"></i> Visitar o canal oficial';
-
-    resposta.appendChild(link);
-
-    const linkContacto = document.createElement("a");
-    linkContacto.className = "chat-youtube";
-    linkContacto.href = "#contacto";
-    linkContacto.textContent = "✉ Enviar uma mensagem";
-    linkContacto.addEventListener("click", fecharPainel);
-
-    resposta.appendChild(linkContacto);
-
-    const voltar = document.createElement("button");
-    voltar.type = "button";
-    voltar.className = "chat-opcao";
-    voltar.style.marginTop = "12px";
-    voltar.textContent = "↩ Voltar às opções";
-    voltar.addEventListener("click", mostrarMenu);
-
-    resposta.appendChild(voltar);
-    corpo.appendChild(resposta);
-    corpo.scrollTop = 0;
-  }
-
-  function abrirPainel() {
-    painel.classList.add("aberto");
-    abrir.setAttribute("aria-expanded", "true");
-    abrir.style.display = "none";
-    fechar.focus();
-  }
-
-  function fecharPainel() {
-    painel.classList.remove("aberto");
-    abrir.setAttribute("aria-expanded", "false");
-    abrir.style.display = "block";
-    abrir.focus();
-  }
-
-  abrir.addEventListener("click", abrirPainel);
-  fechar.addEventListener("click", fecharPainel);
-  contacto.addEventListener("click", fecharPainel);
-
-  document.addEventListener("keydown", function(event) {
-    if (event.key === "Escape" && painel.classList.contains("aberto")) {
-      fecharPainel();
-    }
-  });
-
-  mostrarMenu();
-})();
-</script>
 
 </body>
 </html>
