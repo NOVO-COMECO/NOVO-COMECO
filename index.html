@@ -124,21 +124,37 @@ header {
   border-radius:9px;
 }
 
-/* APRESENTAÇÃO PRINCIPAL */
+/* PAINEL PRINCIPAL */
 
 .hero {
   background:
     radial-gradient(circle at 85% 10%,#ffffff17,transparent 30%),
     linear-gradient(135deg,#032e23,#087653);
   color:white;
-  padding:55px 0 48px;
+  padding:62px 0 56px;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero:after {
+  content:"";
+  position:absolute;
+  width:330px;
+  height:330px;
+  border:1px solid #ffffff12;
+  border-radius:50%;
+  right:-150px;
+  bottom:-210px;
+  pointer-events:none;
 }
 
 .hero-caixa {
   display:grid;
-  grid-template-columns:1.4fr .8fr;
+  grid-template-columns:1.35fr .85fr;
   align-items:center;
-  gap:35px;
+  gap:42px;
+  position:relative;
+  z-index:1;
 }
 
 .etiqueta {
@@ -161,6 +177,7 @@ header {
   font-size:clamp(34px,5vw,54px);
   line-height:1.13;
   margin:20px 0 17px;
+  letter-spacing:-1px;
 }
 
 .hero p {
@@ -206,24 +223,31 @@ header {
   color:white;
 }
 
+/* PAINEL LATERAL DO INÍCIO */
+
 .hero-painel {
-  background:#ffffff12;
-  border:1px solid #ffffff25;
-  border-radius:22px;
-  padding:25px;
-  backdrop-filter:blur(5px);
+  background:linear-gradient(145deg,#ffffff1c,#ffffff0a);
+  border:1px solid #ffffff35;
+  border-radius:24px;
+  padding:27px;
+  backdrop-filter:blur(8px);
+  box-shadow:0 18px 45px #001d1430;
+  position:relative;
 }
 
 .hero-painel-topo {
   display:flex;
   align-items:center;
   justify-content:space-between;
-  margin-bottom:20px;
+  gap:10px;
+  margin-bottom:25px;
 }
 
 .hero-painel-topo span {
-  font-size:12px;
+  font-size:11px;
   color:#e4eee7;
+  font-weight:bold;
+  letter-spacing:.8px;
 }
 
 .estado {
@@ -231,7 +255,8 @@ header {
   align-items:center;
   gap:6px;
   color:#d8f3df;
-  font-size:11px;
+  font-size:10px!important;
+  letter-spacing:0!important;
 }
 
 .estado i {
@@ -240,26 +265,49 @@ header {
 }
 
 .hero-painel-icone {
-  width:54px;
-  height:54px;
+  width:62px;
+  height:62px;
   display:grid;
   place-items:center;
-  background:#d8ad4525;
+  background:linear-gradient(145deg,#d8ad4540,#d8ad4515);
   color:var(--dourado);
-  border-radius:17px;
-  font-size:25px;
-  margin-bottom:16px;
+  border:1px solid #d8ad4550;
+  border-radius:19px;
+  font-size:28px;
+  margin-bottom:19px;
 }
 
 .hero-painel h2 {
-  font-size:21px;
-  margin-bottom:8px;
+  font-size:23px;
+  line-height:1.3;
+  margin-bottom:10px;
+  max-width:310px;
 }
 
 .hero-painel p {
   font-size:13px;
   margin:0;
   color:#e3eee7;
+}
+
+.hero-painel-linha {
+  height:1px;
+  background:#ffffff25;
+  margin:22px 0 16px;
+}
+
+.hero-painel-frase {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#f1e1b6;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.hero-painel-frase i {
+  color:var(--dourado);
+  font-size:15px;
 }
 
 /* SECÇÕES */
@@ -300,7 +348,7 @@ section {scroll-margin-top:95px}
 /* ACESSO RÁPIDO */
 
 .acessos {
-  padding:30px 0 55px;
+  padding:32px 0 55px;
 }
 
 .acessos-titulo {
@@ -444,7 +492,7 @@ section {scroll-margin-top:95px}
   border-radius:15px;
   box-shadow:var(--sombra);
   overflow:hidden;
-  transition:border .2s;
+  transition:border .2s,transform .2s;
 }
 
 .tema[open] {border-color:#a9c9b4}
@@ -468,21 +516,33 @@ section {scroll-margin-top:95px}
   margin-left:auto;
   font-size:23px;
   color:var(--verde-claro);
+  font-weight:normal;
 }
 
 .tema[open] summary:after {content:"−"}
 
 .tema summary:hover {background:#f5f9f6}
 
+/* NOVOS ÍCONES DOS OITO TEMAS */
+
 .tema-icone {
-  width:42px;
-  height:42px;
+  width:43px;
+  height:43px;
   flex-shrink:0;
   display:grid;
   place-items:center;
   background:var(--verde-suave);
-  border-radius:12px;
-  font-size:21px;
+  border:1px solid #dcebe0;
+  border-radius:13px;
+  color:var(--verde-claro);
+  font-size:18px;
+  transition:background .2s,color .2s;
+}
+
+.tema[open] .tema-icone {
+  background:var(--verde);
+  color:var(--dourado);
+  border-color:var(--verde);
 }
 
 .tema-conteudo {
@@ -530,73 +590,6 @@ section {scroll-margin-top:95px}
 }
 
 .youtube-btn:hover {background:var(--verde-claro)}
-
-/* VÍDEO - ÁREA PREPARADA */
-
-.video-area {
-  background:#eaf2ec;
-}
-
-.video-caixa {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  align-items:center;
-  gap:30px;
-  background:white;
-  border:1px solid var(--borda);
-  border-radius:20px;
-  padding:24px;
-  box-shadow:var(--sombra);
-}
-
-.video-visual {
-  min-height:235px;
-  border-radius:15px;
-  background:
-    radial-gradient(circle at center,#ffffff16,transparent 50%),
-    linear-gradient(135deg,#032e23,#087653);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  color:white;
-  text-align:center;
-  padding:20px;
-}
-
-.video-visual i {
-  font-size:48px;
-  color:var(--dourado);
-  margin-bottom:13px;
-}
-
-.video-visual strong {font-size:17px}
-
-.video-visual span {
-  color:#dcebe1;
-  font-size:12px;
-  margin-top:5px;
-}
-
-.video-info small {
-  color:var(--verde-claro);
-  font-size:12px;
-  font-weight:bold;
-  letter-spacing:1px;
-  text-transform:uppercase;
-}
-
-.video-info h2 {
-  color:var(--verde);
-  font-size:25px;
-  line-height:1.2;
-  margin:10px 0;
-}
-
-.video-info p {
-  color:var(--cinza);
-  font-size:14px;
-}
 
 /* APOIO */
 
@@ -775,7 +768,7 @@ footer p {
   font-weight:bold;
 }
 
-/* NAVEGAÇÃO INFERIOR PARA TELEMÓVEIS */
+/* NAVEGAÇÃO INFERIOR */
 
 .menu-inferior {display:none}
 
@@ -926,9 +919,9 @@ footer p {
   .menu a {font-size:12px}
   .menu-contacto {padding:8px 11px}
 
-  .hero {padding:42px 0}
-  .hero-caixa {grid-template-columns:1fr;gap:25px}
-  .hero-painel {padding:20px}
+  .hero {padding:43px 0}
+  .hero-caixa {grid-template-columns:1fr;gap:27px}
+  .hero-painel {padding:22px}
 
   .acessos-grelha {grid-template-columns:repeat(2,1fr)}
   .acesso {min-height:125px;padding:16px}
@@ -940,13 +933,6 @@ footer p {
   }
 
   .temas-grelha {grid-template-columns:1fr}
-
-  .video-caixa {
-    grid-template-columns:1fr;
-    padding:17px;
-  }
-
-  .video-visual {min-height:190px}
 }
 
 @media(max-width:520px) {
@@ -973,6 +959,10 @@ footer p {
 
   .botao {padding:12px 10px;font-size:12px}
 
+  .hero-painel {padding:21px}
+  .hero-painel h2 {font-size:21px}
+  .hero-painel-topo span {font-size:10px}
+
   .seccao {padding:48px 0}
   .acessos {padding:27px 0 43px}
   .acessos-titulo h2 {font-size:18px}
@@ -983,6 +973,18 @@ footer p {
 
   .destaque {padding-bottom:45px}
   .destaque-texto h2 {font-size:22px}
+
+  .tema summary {
+    padding:16px;
+    font-size:14px;
+    gap:11px;
+  }
+
+  .tema-icone {
+    width:40px;
+    height:40px;
+    font-size:17px;
+  }
 
   .contacto-caixa {padding:22px 16px}
 
@@ -1110,6 +1112,13 @@ footer p {
         Informação, consciência e apoio para construir
         escolhas mais saudáveis e um futuro melhor.
       </p>
+
+      <div class="hero-painel-linha"></div>
+
+      <div class="hero-painel-frase">
+        <i class="fa-solid fa-heart"></i>
+        Recuperar vidas. Reconstruir futuros.
+      </div>
     </div>
 
   </div>
@@ -1203,7 +1212,7 @@ footer p {
 
       <details class="tema">
         <summary>
-          <span class="tema-icone">🌱</span>
+          <span class="tema-icone"><i class="fa-solid fa-users"></i></span>
           <span>1. Quem somos</span>
         </summary>
         <div class="tema-conteudo">
@@ -1226,7 +1235,7 @@ footer p {
 
       <details class="tema">
         <summary>
-          <span class="tema-icone">🎯</span>
+          <span class="tema-icone"><i class="fa-solid fa-bullseye"></i></span>
           <span>2. Compreender as apostas</span>
         </summary>
         <div class="tema-conteudo">
@@ -1247,7 +1256,7 @@ footer p {
 
       <details class="tema">
         <summary>
-          <span class="tema-icone">🛡️</span>
+          <span class="tema-icone"><i class="fa-solid fa-shield-heart"></i></span>
           <span>3. Prevenção das apostas</span>
         </summary>
         <div class="tema-conteudo">
@@ -1268,7 +1277,7 @@ footer p {
 
       <details class="tema">
         <summary>
-          <span class="tema-icone">🔎</span>
+          <span class="tema-icone"><i class="fa-solid fa-magnifying-glass"></i></span>
           <span>4. Sinais de alerta</span>
         </summary>
         <div class="tema-conteudo">
@@ -1287,7 +1296,7 @@ footer p {
 
       <details class="tema">
         <summary>
-          <span class="tema-icone">💔</span>
+          <span class="tema-icone"><i class="fa-solid fa-heart-crack"></i></span>
           <span>5. Consequências das apostas</span>
         </summary>
         <div class="tema-conteudo">
@@ -1311,7 +1320,7 @@ footer p {
 
       <details class="tema">
         <summary>
-          <span class="tema-icone">🤝</span>
+          <span class="tema-icone"><i class="fa-solid fa-hand-holding-heart"></i></span>
           <span>6. Apoio para pessoas e famílias</span>
         </summary>
         <div class="tema-conteudo">
@@ -1338,7 +1347,7 @@ footer p {
 
       <details class="tema">
         <summary>
-          <span class="tema-icone">💰</span>
+          <span class="tema-icone"><i class="fa-solid fa-wallet"></i></span>
           <span>7. Orientação financeira</span>
         </summary>
         <div class="tema-conteudo">
@@ -1359,7 +1368,7 @@ footer p {
 
       <details class="tema">
         <summary>
-          <span class="tema-icone">📚</span>
+          <span class="tema-icone"><i class="fa-solid fa-chalkboard-user"></i></span>
           <span>8. Actividades e palestras</span>
         </summary>
         <div class="tema-conteudo">
@@ -1384,41 +1393,6 @@ footer p {
       </details>
 
     </div>
-  </div>
-</section>
-
-<!-- ÁREA PREPARADA PARA O VÍDEO -->
-
-<section class="seccao video-area" id="video">
-  <div class="container">
-
-    <div class="seccao-cabecalho">
-      <small>Conteúdo audiovisual</small>
-      <h2>Histórias que despertam consciência</h2>
-      <p>
-        A informação também pode ser transmitida através de histórias,
-        imagens e mensagens que ajudam a compreender a realidade.
-      </p>
-    </div>
-
-    <div class="video-caixa">
-      <div class="video-visual">
-        <i class="fa-solid fa-circle-play"></i>
-        <strong>Espaço reservado para o vídeo do Novo Começo</strong>
-        <span>Em breve</span>
-      </div>
-
-      <div class="video-info">
-        <small>Em preparação</small>
-        <h2>O preço das apostas: quando ganhar se transforma em perder.</h2>
-        <p>
-          Um vídeo de sensibilização sobre os riscos das apostas,
-          as consequências para as famílias e a importância de
-          procurar um novo caminho.
-        </p>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -1576,9 +1550,9 @@ footer p {
     <i class="fa-solid fa-book-open"></i>
     Temas
   </a>
-  <a href="#video">
-    <i class="fa-solid fa-circle-play"></i>
-    Vídeo
+  <a href="#apoio">
+    <i class="fa-solid fa-hand-holding-heart"></i>
+    Apoio
   </a>
   <a href="#contacto">
     <i class="fa-solid fa-envelope"></i>
